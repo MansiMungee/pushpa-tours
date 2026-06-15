@@ -28,7 +28,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 28px 8%;
+      padding: 36px 8%;
     }
 
     nav {
@@ -38,20 +38,46 @@
     }
 
     nav img {
-      width: 110px;
+      width: 250px;
       border-radius: 50%;
       background: white;
       padding: 6px;
     }
 
     nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 0.95rem;
-      letter-spacing: 0.5px;
-    }
+  color: white;
+  text-decoration: none;
 
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+
+  padding: 12px 22px;
+
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+
+  transition: all 0.25s ease;
+
+  margin-left: 10px;
+}
+
+nav a:hover {
+  background: rgba(214,168,79,0.9);
+  color: #17351f;
+  border-color: rgba(214,168,79,1);
+  transform: translateY(-2px);
+}
+
+nav a.active {
+  background: #d6a84f;
+  color: #17351f;
+  font-weight: 700;
+}
     .hero-text {
       max-width: 760px;
       padding-bottom: 80px;
@@ -288,14 +314,17 @@
 
 <header>
   <nav>
-    <img src="images/logo.jpg" alt="Pushpa Tours & Travels logo">
-    <div>
-      <a href="index.html">Home</a>
-      <a href="birding.html">Birding Tours</a>
-      <a href="#itinerary">Itinerary</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  <img src="images/logo.jpg" alt="Pushpa Tours & Travels logo">
+
+  <div>
+    <a href="index.html">Home</a>
+    <a href="birding.html" class="active">Birding</a>
+    <a href="wildlife.html">Wildlife</a>
+    <a href="cultural.html">Cultural</a>
+    <a href="family.html">Family</a>
+    <a href="adventure.html">Adventure</a>
+    <a href="#contact">Contact</a>
+  </div>
 
   <div class="hero-text">
     <div class="eyebrow">Northeast India Birding Expeditions</div>
