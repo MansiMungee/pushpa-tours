@@ -1,17 +1,512 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Pushpa Tours & Travels</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pushpa Tours & Travels | Northeast India</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f4efe6;
+      color: #243126;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(8, 25, 18, 0.35), rgba(8, 25, 18, 0.72)),
+        url("images/forest1.jpg") center/cover no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px 8%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav img {
+      width: 110px;
+      border-radius: 50%;
+      background: white;
+      padding: 6px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero {
+      max-width: 850px;
+      padding-bottom: 90px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.85rem;
+      color: #d6c38b;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.95;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 680px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 26px;
+      background: #d6a84f;
+      color: #1e2b20;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .intro h2,
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      color: #17351f;
+    }
+
+    .intro p {
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+    }
+
+    .intro img {
+      width: 100%;
+      border-radius: 30px;
+      box-shadow: 0 24px 50px rgba(0,0,0,0.22);
+    }
+
+    .experiences {
+      background: #17351f;
+      color: white;
+    }
+
+    .experiences .section-title {
+      color: white;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .experience-card {
+      min-height: 370px;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      text-decoration: none;
+      color: white;
+      display: flex;
+      align-items: flex-end;
+      box-shadow: 0 18px 38px rgba(0,0,0,0.28);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 60px rgba(0,0,0,0.4);
+    }
+
+    .experience-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.78));
+      z-index: 1;
+    }
+
+    .experience-card div {
+      position: relative;
+      z-index: 2;
+      padding: 24px;
+    }
+
+    .experience-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
+    .experience-card p {
+      font-size: 0.95rem;
+    }
+
+    .birding {
+      background: url("images/forest2.jpg") center/cover no-repeat;
+    }
+
+    .wildlife {
+      background: url("images/forest3.jpg") center/cover no-repeat;
+    }
+
+    .culture {
+      background: url("images/forest4.jpg") center/cover no-repeat;
+    }
+
+    .adventure {
+      background: url("images/tragopandatrail.jpg") center/cover no-repeat;
+    }
+
+    .family {
+      background: url("images/lamacamp1.jpg") center/cover no-repeat;
+    }
+
+    .banner {
+      min-height: 420px;
+      background:
+        linear-gradient(rgba(10, 34, 24, 0.35), rgba(10, 34, 24, 0.65)),
+        url("images/forest5.jpg") center/cover fixed;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+
+    .banner div {
+      max-width: 760px;
+      padding: 80px 8%;
+    }
+
+    .banner h2 {
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .destinations {
+      background: #fffaf0;
+    }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .destination {
+      background: white;
+      padding: 26px;
+      border-radius: 24px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+
+    .destination h3 {
+      color: #17351f;
+      margin-bottom: 8px;
+    }
+
+    .feature-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      background: #e5dccb;
+    }
+
+    .feature {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.12);
+    }
+
+    .feature img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .feature div {
+      padding: 26px;
+    }
+
+    .feature h3 {
+      color: #17351f;
+      margin-bottom: 10px;
+    }
+
+    .quote {
+      background:
+        linear-gradient(rgba(23,53,31,0.86), rgba(23,53,31,0.86)),
+        url("images/forest9.jpg") center/cover no-repeat;
+      color: white;
+      text-align: center;
+    }
+
+    .quote blockquote {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      max-width: 900px;
+      margin: 0 auto 20px;
+      line-height: 1.25;
+    }
+
+    footer {
+      background: #102017;
+      color: white;
+      padding: 46px 8%;
+      text-align: center;
+    }
+
+    footer a {
+      color: #d6a84f;
+      text-decoration: none;
+    }
+
+    @media (max-width: 1000px) {
+      .experience-grid,
+      .destination-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature-strip,
+      .intro {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      nav div {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        margin: 8px 12px 0 0;
+      }
+
+      .experience-grid,
+      .destination-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <img src="images/logo.jpg" alt="Pushpa Tours & Travels Logo" width="180">
+<header>
+  <nav>
+    <img src="images/logo.jpg" alt="Pushpa Tours & Travels logo">
+    <div>
+      <a href="index.html">Home</a>
+      <a href="birding.html">Birding</a>
+      <a href="#experiences">Tours</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-    <h1>Pushpa Tours & Travels</h1>
-
+  <div class="hero">
+    <div class="eyebrow">Northeast India, thoughtfully explored</div>
+    <h1>Journeys into the wild heart of the Eastern Himalaya.</h1>
     <p>
-        Curated journeys through the wild and cultural landscapes of Northeast India.
+      Birding, wildlife, culture, family holidays and soft adventure tours across
+      Arunachal Pradesh, Assam, Meghalaya, Nagaland and Sikkim.
     </p>
+    <a class="button" href="#experiences">Explore tours</a>
+  </div>
+</header>
+
+<section class="intro">
+  <div>
+    <h2>Travel that feels intimate, wild and deeply local.</h2>
+    <p>
+      Pushpa Tours & Travels curates immersive journeys through some of India’s most
+      remarkable landscapes — misty cloud forests, river valleys, grasslands, monasteries,
+      village trails and biodiversity-rich sanctuaries.
+    </p>
+    <p>
+      Whether you are a serious birder chasing Himalayan specialities, a family looking for
+      a meaningful holiday, or a traveller drawn to culture and wild places, we help you
+      experience Northeast India with care, comfort and attention to detail.
+    </p>
+  </div>
+
+  <img src="images/forest6.jpg" alt="Cloud forest in Northeast India">
+</section>
+
+<section class="experiences" id="experiences">
+  <h2 class="section-title">Choose your journey</h2>
+  <p>
+    From specialist birding expeditions to relaxed family-friendly holidays, each journey is
+    designed around landscapes, seasons, local knowledge and memorable encounters.
+  </p>
+
+  <div class="experience-grid">
+
+    <a class="experience-card birding" href="birding.html">
+      <div>
+        <h3>Birding Tours</h3>
+        <p>Cloud forests, grasslands and Himalayan passes for serious birders and naturalists.</p>
+      </div>
+    </a>
+
+    <a class="experience-card wildlife" href="#">
+      <div>
+        <h3>Wildlife Tours</h3>
+        <p>Rhinos, elephants, primates, forests and protected areas across Northeast India.</p>
+      </div>
+    </a>
+
+    <a class="experience-card culture" href="#">
+      <div>
+        <h3>Cultural Tours</h3>
+        <p>Monasteries, village landscapes, food, craft traditions and living heritage.</p>
+      </div>
+    </a>
+
+    <a class="experience-card adventure" href="#">
+      <div>
+        <h3>Adventure Tours</h3>
+        <p>Forest trails, mountain roads, river valleys and soft adventure in dramatic terrain.</p>
+      </div>
+    </a>
+
+    <a class="experience-card family" href="#">
+      <div>
+        <h3>Family Tours</h3>
+        <p>Comfortable, nature-rich itineraries designed for families and mixed-age groups.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="banner">
+  <div>
+    <div class="eyebrow">For travellers who love wild places</div>
+    <h2>Misty forests, rare birds, mountain roads and stories that stay with you.</h2>
+    <p>
+      Northeast India rewards slow travel. Our tours are built to give you time — time to
+      watch, listen, walk, pause, photograph and understand the landscapes you move through.
+    </p>
+  </div>
+</section>
+
+<section class="destinations">
+  <h2 class="section-title">Destinations we love</h2>
+  <p>
+    Explore carefully designed journeys across the most spectacular states of Northeast India.
+  </p>
+
+  <div class="destination-grid">
+    <div class="destination">
+      <h3>Arunachal Pradesh</h3>
+      <p>Cloud forests, high passes, birding trails, monasteries and remote valleys.</p>
+    </div>
+
+    <div class="destination">
+      <h3>Assam</h3>
+      <p>Floodplains, tea country, Kaziranga, Nameri and rich wildlife landscapes.</p>
+    </div>
+
+    <div class="destination">
+      <h3>Meghalaya</h3>
+      <p>Living root bridges, waterfalls, limestone landscapes and misty escarpments.</p>
+    </div>
+
+    <div class="destination">
+      <h3>Nagaland</h3>
+      <p>Hills, villages, cultural landscapes and distinctive mountain journeys.</p>
+    </div>
+
+    <div class="destination">
+      <h3>Sikkim</h3>
+      <p>Himalayan views, monasteries, rhododendron forests and high-altitude beauty.</p>
+    </div>
+  </div>
+</section>
+
+<section class="feature-strip">
+  <div class="feature">
+    <img src="images/forest7.jpg" alt="Forest landscape">
+    <div>
+      <h3>Natural history focus</h3>
+      <p>
+        Routes shaped by birds, mammals, forests, seasons and local ecological knowledge.
+      </p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <img src="images/lamacamp1.jpg" alt="Lama Camp">
+    <div>
+      <h3>Comfort in wild places</h3>
+      <p>
+        Thoughtful stays, practical logistics and field-friendly itineraries without losing the
+        sense of wilderness.
+      </p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <img src="images/tragopandatrail.jpg" alt="Tragopan trail">
+    <div>
+      <h3>Designed for curiosity</h3>
+      <p>
+        For birders, families, photographers, researchers and travellers who want depth, not rush.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <blockquote>
+    “Not just a tour — a journey through forests, birds, mountains, cultures and the quiet magic of Northeast India.”
+  </blockquote>
+  <p>Pushpa Tours & Travels</p>
+</section>
+
+<footer id="contact">
+  <h2>Pushpa Tours & Travels</h2>
+  <p>Birding, wildlife, cultural, family and adventure tours across Northeast India.</p>
+  <p>
+    Email: <a href="mailto:your-email@example.com">your-email@example.com</a> |
+    Phone/WhatsApp: <a href="tel:+910000000000">+91 00000 00000</a>
+  </p>
+</footer>
 
 </body>
 </html>
