@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birding Tours | Pushpa Tours & Travels</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f4efe6;
+      color: #243126;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 92vh;
+      background:
+        linear-gradient(rgba(8, 28, 20, 0.45), rgba(8, 28, 20, 0.65)),
+        url("images/birdingpage/tour1.jpeg") center/cover no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px 8%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav img {
+      width: 110px;
+      border-radius: 50%;
+      background: white;
+      padding: 6px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-text {
+      max-width: 760px;
+      padding-bottom: 80px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.85rem;
+      color: #d6c38b;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      margin-bottom: 24px;
+    }
+
+    .hero-text p {
+      font-size: 1.25rem;
+      max-width: 620px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 26px;
+      background: #d6a84f;
+      color: #1e2b20;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .intro h2,
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      color: #17351f;
+    }
+
+    .intro p {
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+    }
+
+    .intro img {
+      width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 24px 50px rgba(0,0,0,0.22);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .stat {
+      background: #fffaf0;
+      padding: 24px;
+      border-radius: 22px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      color: #9b6b22;
+    }
+
+    .gallery {
+      background: #17351f;
+      color: white;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 22px;
+    }
+
+    .itinerary {
+      background: #fffaf0;
+    }
+
+    .timeline {
+      max-width: 950px;
+      margin: 40px auto 0;
+    }
+
+    .day-card {
+      background: white;
+      border-left: 6px solid #d6a84f;
+      padding: 28px;
+      margin-bottom: 22px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .day-card h3 {
+      color: #17351f;
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+    }
+
+    .species {
+      margin-top: 48px;
+      background:
+        linear-gradient(rgba(23, 53, 31, 0.86), rgba(23, 53, 31, 0.86)),
+        url("images/birdingpage/tour2.jpeg") center/cover fixed;
+      color: white;
+      border-radius: 32px;
+      padding: 50px;
+    }
+
+    .species-list {
+      columns: 3;
+      column-gap: 36px;
+      margin-top: 18px;
+      font-size: 1rem;
+    }
+
+    .tour-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 36px;
+    }
+
+    .tour-card {
+      background: white;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+    }
+
+    .tour-card img {
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+    }
+
+    .tour-card div {
+      padding: 26px;
+    }
+
+    .tour-card h3 {
+      color: #17351f;
+      margin-bottom: 10px;
+    }
+
+    .camp {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: center;
+      background: #e5dccb;
+    }
+
+    .camp img {
+      width: 100%;
+      border-radius: 26px;
+    }
+
+    footer {
+      background: #102017;
+      color: white;
+      padding: 42px 8%;
+      text-align: center;
+    }
+
+    footer a {
+      color: #d6a84f;
+      text-decoration: none;
+    }
+
+    @media (max-width: 850px) {
+      .intro,
+      .camp {
+        grid-template-columns: 1fr;
+      }
+
+      .stats,
+      .tour-cards,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .species-list {
+        columns: 1;
+      }
+
+      nav {
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      nav div {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        margin: 8px 12px 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <img src="images/logo.jpg" alt="Pushpa Tours & Travels logo">
+    <div>
+      <a href="index.html">Home</a>
+      <a href="birding.html">Birding Tours</a>
+      <a href="#itinerary">Itinerary</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero-text">
+    <div class="eyebrow">Northeast India Birding Expeditions</div>
+    <h1>Birding through cloud forests, grasslands & Himalayan passes.</h1>
+    <p>
+      Carefully curated birding journeys across Arunachal Pradesh, Assam and Meghalaya —
+      from Eaglenest and Dirang to Kaziranga, Nameri, Shillong and Cherrapunji.
+    </p>
+    <a class="button" href="#itinerary">Explore the itinerary</a>
+  </div>
+</header>
+
+<section class="intro">
+  <div>
+    <h2>One of Asia’s most rewarding birding circuits</h2>
+    <p>
+      This birding route moves from the marshlands of Kaziranga and the evergreen forests
+      of Nameri to the montane forests of Eaglenest, the high Himalayan landscapes of Dirang,
+      and the wet escarpments of Shillong and Cherrapunji.
+    </p>
+    <p>
+      The original itinerary describes Eaglenest as one of Asia’s top birding areas, with an
+      exceptional altitudinal range and around 750 bird species recorded across the wider circuit.
+    </p>
+
+    <div class="stats">
+      <div class="stat"><strong>21</strong>days</div>
+      <div class="stat"><strong>350+</strong>expected species</div>
+      <div class="stat"><strong>50–4200m</strong>altitudinal range</div>
+      <div class="stat"><strong>2–12</strong>group size</div>
+    </div>
+  </div>
+
+  <img src="images/birdingpage/tour2.jpeg" alt="Birding landscape in Northeast India">
+</section>
+
+<section class="gallery">
+  <h2 class="section-title">Target birds and signature encounters</h2>
+  <p>
+    Expect a rich mix of Eastern Himalayan specialities, lowland forest birds, grassland species,
+    riverine birds and high-altitude Himalayan species.
+  </p>
+
+  <div class="gallery-grid">
+    <img src="images/birdingpage/bird1.jpeg" alt="Bird photograph">
+    <img src="images/birdingpage/bird2.jpeg" alt="Bird photograph">
+    <img src="images/birdingpage/bird3.jpeg" alt="Bird photograph">
+    <img src="images/birdingpage/bird4.jpeg" alt="Bird photograph">
+    <img src="images/birdingpage/bird5.jpeg" alt="Bird photograph">
+  </div>
+</section>
+
+<section class="itinerary" id="itinerary">
+  <h2 class="section-title">Sample 21-day birding itinerary</h2>
+  <p>
+    Based on the uploaded Northeast India bird tour itinerary covering Kaziranga, Nameri,
+    Eaglenest, Dirang, Shillong and Cherrapunji.
+  </p>
+
+  <div class="timeline">
+    <div class="day-card">
+      <h3>Days 1–4: Kaziranga</h3>
+      <p>
+        Begin in Guwahati and drive to Kaziranga. Bird the marshes and woodland for
+        Bengal Florican, Greater Adjutant, Pallas Fish-Eagle, Pied Harrier, Black-breasted
+        Parrotbill and other grassland and wetland species. Mammal highlights may include
+        Indian Rhino, Swamp Deer, Wild Buffalo and Asian Elephant.
+      </p>
+    </div>
+
+    <div class="day-card">
+      <h3>Days 5–6: Nameri and Eaglenest foothills</h3>
+      <p>
+        Explore the mature evergreen forests of Nameri, with White-winged Duck as a key target.
+        Continue towards Eaglenest, birding foothill forests for hornbills, broadbills, babblers,
+        woodpeckers, minlas, yuhinas and forktails.
+      </p>
+    </div>
+
+    <div class="day-card">
+      <h3>Days 7–15: Eaglenest Wildlife Sanctuary</h3>
+      <p>
+        Spend nine nights across Sessni, Bompu and Lama Camp, birding from roughly 500 to
+        2900 m. Target species include Bugun Liocichla, Ward’s Trogon, Beautiful Nuthatch,
+        Wedge-billed Wren-Babbler, Fire-tailed Myzornis, Rufous-necked Hornbill,
+        Purple Cochoa and multiple laughingthrushes, babblers and sibias.
+      </p>
+    </div>
+
+    <div class="day-card">
+      <h3>Days 16–18: Dirang and Sela Pass</h3>
+      <p>
+        Move into high Himalayan habitats around Dirang and Sela Pass. Look for Himalayan Monal,
+        Blood Pheasant, Grandala, Ibisbill, Long-billed Plover, Snow Partridge, finches,
+        rosefinches, accentors and other high-altitude specialities.
+      </p>
+    </div>
+
+    <div class="day-card">
+      <h3>Days 19–21: Shillong and Cherrapunji</h3>
+      <p>
+        Finish in Meghalaya, birding Shillong and Cherrapunji for Dark-rumped Swift,
+        Tawny-breasted Wren-Babbler, Rusty-capped Fulvetta, Spot-breasted Scimitar-Babbler,
+        Assam Laughingthrush and other regional specialities.
+      </p>
+    </div>
+  </div>
+
+  <div class="species">
+    <h2>Possible highlights</h2>
+    <div class="species-list">
+      Ward’s Trogon<br>
+      Bugun Liocichla<br>
+      Beautiful Nuthatch<br>
+      Rufous-necked Hornbill<br>
+      Fire-tailed Myzornis<br>
+      Wedge-billed Wren-Babbler<br>
+      Long-billed Wren-Babbler<br>
+      Blyth’s Tragopan<br>
+      Temminck’s Tragopan<br>
+      Himalayan Monal<br>
+      Blood Pheasant<br>
+      Grandala<br>
+      Ibisbill<br>
+      White-winged Duck<br>
+      Bengal Florican<br>
+      Greater Adjutant<br>
+      Black-breasted Parrotbill<br>
+      Pallas Fish-Eagle
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Birding experiences</h2>
+
+  <div class="tour-cards">
+    <div class="tour-card">
+      <img src="images/birdingpage/tour1.jpeg" alt="Cloud forest birding">
+      <div>
+        <h3>Cloud Forest Birding</h3>
+        <p>
+          Multi-day birding through Eaglenest’s forested elevational gradient, with flexible
+          jeep-track access and full-day field sessions.
+        </p>
+      </div>
+    </div>
+
+    <div class="tour-card">
+      <img src="images/birdingpage/tour3.jpeg" alt="Lowland birding">
+      <div>
+        <h3>Lowland Forests & Wetlands</h3>
+        <p>
+          Explore Kaziranga and Nameri for grassland, riverine and evergreen-forest birds,
+          along with iconic Northeast Indian mammals.
+        </p>
+      </div>
+    </div>
+
+    <div class="tour-card">
+      <img src="images/birdingpage/tour4.jpeg" alt="High altitude birding">
+      <div>
+        <h3>High Himalayan Specialities</h3>
+        <p>
+          Continue towards Dirang and Sela Pass for pheasants, Grandala, Ibisbill,
+          rosefinches and high-altitude Himalayan birds.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="camp">
+  <img src="images/birdingpage/tour4.jpeg" alt="Birding camp or tour landscape">
+
+  <div>
+    <h2 class="section-title">Comfortable, field-focused travel</h2>
+    <p>
+      The itinerary emphasizes long field days, flexible movement across altitudes, and
+      comfortable stays in camps, lodges and hotels depending on location.
+    </p>
+    <p>
+      The rhythm is designed for serious birders: early starts, packed field days, warm meals,
+      local guidance and enough flexibility to respond to sightings, weather and target priorities.
+    </p>
+    <a class="button" href="#contact">Plan a birding tour</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <h2>Pushpa Tours & Travels</h2>
+  <p>Birding, wildlife and cultural journeys across Northeast India.</p>
+  <p>
+    Email: <a href="mailto:your-email@example.com">your-email@example.com</a> |
+    Phone/WhatsApp: <a href="tel:+910000000000">+91 00000 00000</a>
+  </p>
+</footer>
+
+</body>
+</html>
