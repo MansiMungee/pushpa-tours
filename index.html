@@ -19,7 +19,7 @@
       min-height: 100vh;
       background:
         linear-gradient(rgba(8, 25, 18, 0.35), rgba(8, 25, 18, 0.72)),
-        url("images/forest1.jpg") center/cover no-repeat;
+        url("images/homepage/homepage_forest1.jpg") center/cover no-repeat;
       color: white;
       display: flex;
       flex-direction: column;
@@ -41,41 +41,32 @@
     }
 
     nav a {
-  color: white;
-  text-decoration: none;
+      color: white;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      transition: all 0.25s ease;
+      margin-left: 10px;
+    }
 
-  font-size: 1.05rem;
-  font-weight: 600;
-
-  letter-spacing: 0.5px;
-
-  padding: 10px 18px;
-
-  border: 1px solid rgba(255,255,255,0.35);
-  border-radius: 999px;
-
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(6px);
-
-  transition: all 0.25s ease;
-
-  margin-left: 10px;
-}
     nav a:hover {
-  background: rgba(214,168,79,0.9);
-
-  color: #17351f;
-
-  border-color: rgba(214,168,79,1);
-
-  transform: translateY(-2px);
-}
+      background: rgba(214,168,79,0.9);
+      color: #17351f;
+      border-color: rgba(214,168,79,1);
+      transform: translateY(-2px);
+    }
 
     nav a.active {
-  background: #d6a84f;
-  color: #17351f;
-  font-weight: 700;
-}
+      background: #d6a84f;
+      color: #17351f;
+      font-weight: 700;
+    }
 
     .hero {
       max-width: 850px;
@@ -112,9 +103,7 @@
       font-weight: bold;
     }
 
-    section {
-      padding: 80px 8%;
-    }
+    section { padding: 80px 8%; }
 
     .intro {
       display: grid;
@@ -147,9 +136,7 @@
       color: white;
     }
 
-    .experiences .section-title {
-      color: white;
-    }
+    .experiences .section-title { color: white; }
 
     .experience-grid {
       display: grid;
@@ -195,35 +182,33 @@
       margin-bottom: 8px;
     }
 
-    .experience-card p {
-      font-size: 0.95rem;
-    }
+    .experience-card p { font-size: 0.95rem; }
 
     .birding {
-      background: url("images/forest2.jpg") center/cover no-repeat;
+      background: url("images/homepage/birding_cover.jpg") center/cover no-repeat;
     }
 
     .wildlife {
-      background: url("images/forest3.jpg") center/cover no-repeat;
+      background: url("images/homepage/wildlife_cover.jpg") center/cover no-repeat;
     }
 
     .culture {
-      background: url("images/forest4.jpg") center/cover no-repeat;
+      background: url("images/homepage/culture_cover.jpg") center/cover no-repeat;
     }
 
     .adventure {
-      background: url("images/tragopandatrail.jpg") center/cover no-repeat;
+      background: url("images/homepage/adventure_cover.jpg") center/cover no-repeat;
     }
 
     .family {
-      background: url("images/lamacamp1.jpg") center/cover no-repeat;
+      background: url("images/homepage/homepage_forest4.jpg") center/cover no-repeat;
     }
 
     .banner {
       min-height: 420px;
       background:
         linear-gradient(rgba(10, 34, 24, 0.35), rgba(10, 34, 24, 0.65)),
-        url("images/forest5.jpg") center/cover fixed;
+        url("images/homepage/homepage_forest2.jpg") center/cover fixed;
       display: flex;
       align-items: center;
       color: white;
@@ -240,9 +225,7 @@
       margin-bottom: 20px;
     }
 
-    .destinations {
-      background: #fffaf0;
-    }
+    .destinations { background: #fffaf0; }
 
     .destination-grid {
       display: grid;
@@ -283,9 +266,7 @@
       object-fit: cover;
     }
 
-    .feature div {
-      padding: 26px;
-    }
+    .feature div { padding: 26px; }
 
     .feature h3 {
       color: #17351f;
@@ -295,7 +276,7 @@
     .quote {
       background:
         linear-gradient(rgba(23,53,31,0.86), rgba(23,53,31,0.86)),
-        url("images/forest9.jpg") center/cover no-repeat;
+        url("images/homepage/homepage_forest6.jpg") center/cover no-repeat;
       color: white;
       text-align: center;
     }
@@ -359,16 +340,15 @@
 <header>
   <nav>
     <img src="images/logo.jpg" alt="Pushpa Tours & Travels logo">
+
     <div>
-     <div>
-  <a href="index.html" class="active">Home</a>
-  <a href="birding.html" class="active">Birding</a>
-  <a href="wildlife.html">Wildlife</a>
-  <a href="cultural.html">Cultural</a>
-  <a href="family.html">Family</a>
-  <a href="adventure.html">Adventure</a>
-  <a href="#contact">Contact</a>
-</div>
+      <a href="index.html" class="active">Home</a>
+      <a href="birding.html">Birding</a>
+      <a href="wildlife.html">Wildlife</a>
+      <a href="cultural.html">Cultural</a>
+      <a href="family.html">Family</a>
+      <a href="adventure.html">Adventure</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 
@@ -398,7 +378,7 @@
     </p>
   </div>
 
-  <img src="images/forest6.jpg" alt="Cloud forest in Northeast India">
+  <img src="images/homepage/homepage_forest3.jpg" alt="Cloud forest in Northeast India">
 </section>
 
 <section class="experiences" id="experiences">
@@ -417,28 +397,28 @@
       </div>
     </a>
 
-    <a class="experience-card wildlife" href="#">
+    <a class="experience-card wildlife" href="wildlife.html">
       <div>
         <h3>Wildlife Tours</h3>
         <p>Rhinos, elephants, primates, forests and protected areas across Northeast India.</p>
       </div>
     </a>
 
-    <a class="experience-card culture" href="#">
+    <a class="experience-card culture" href="cultural.html">
       <div>
         <h3>Cultural Tours</h3>
         <p>Monasteries, village landscapes, food, craft traditions and living heritage.</p>
       </div>
     </a>
 
-    <a class="experience-card adventure" href="#">
+    <a class="experience-card adventure" href="adventure.html">
       <div>
         <h3>Adventure Tours</h3>
         <p>Forest trails, mountain roads, river valleys and soft adventure in dramatic terrain.</p>
       </div>
     </a>
 
-    <a class="experience-card family" href="#">
+    <a class="experience-card family" href="family.html">
       <div>
         <h3>Family Tours</h3>
         <p>Comfortable, nature-rich itineraries designed for families and mixed-age groups.</p>
@@ -466,62 +446,36 @@
   </p>
 
   <div class="destination-grid">
-    <div class="destination">
-      <h3>Arunachal Pradesh</h3>
-      <p>Cloud forests, high passes, birding trails, monasteries and remote valleys.</p>
-    </div>
-
-    <div class="destination">
-      <h3>Assam</h3>
-      <p>Floodplains, tea country, Kaziranga, Nameri and rich wildlife landscapes.</p>
-    </div>
-
-    <div class="destination">
-      <h3>Meghalaya</h3>
-      <p>Living root bridges, waterfalls, limestone landscapes and misty escarpments.</p>
-    </div>
-
-    <div class="destination">
-      <h3>Nagaland</h3>
-      <p>Hills, villages, cultural landscapes and distinctive mountain journeys.</p>
-    </div>
-
-    <div class="destination">
-      <h3>Sikkim</h3>
-      <p>Himalayan views, monasteries, rhododendron forests and high-altitude beauty.</p>
-    </div>
+    <div class="destination"><h3>Arunachal Pradesh</h3><p>Cloud forests, high passes, birding trails, monasteries and remote valleys.</p></div>
+    <div class="destination"><h3>Assam</h3><p>Floodplains, tea country, Kaziranga, Nameri and rich wildlife landscapes.</p></div>
+    <div class="destination"><h3>Meghalaya</h3><p>Living root bridges, waterfalls, limestone landscapes and misty escarpments.</p></div>
+    <div class="destination"><h3>Nagaland</h3><p>Hills, villages, cultural landscapes and distinctive mountain journeys.</p></div>
+    <div class="destination"><h3>Sikkim</h3><p>Himalayan views, monasteries, rhododendron forests and high-altitude beauty.</p></div>
   </div>
 </section>
 
 <section class="feature-strip">
   <div class="feature">
-    <img src="images/forest7.jpg" alt="Forest landscape">
+    <img src="images/homepage/homepage_forest4.jpg" alt="Forest landscape">
     <div>
       <h3>Natural history focus</h3>
-      <p>
-        Routes shaped by birds, mammals, forests, seasons and local ecological knowledge.
-      </p>
+      <p>Routes shaped by birds, mammals, forests, seasons and local ecological knowledge.</p>
     </div>
   </div>
 
   <div class="feature">
-    <img src="images/lamacamp1.jpg" alt="Lama Camp">
+    <img src="images/homepage/homepage_forest5.jpg" alt="Comfortable travel in wild places">
     <div>
       <h3>Comfort in wild places</h3>
-      <p>
-        Thoughtful stays, practical logistics and field-friendly itineraries without losing the
-        sense of wilderness.
-      </p>
+      <p>Thoughtful stays, practical logistics and field-friendly itineraries without losing the sense of wilderness.</p>
     </div>
   </div>
 
   <div class="feature">
-    <img src="images/tragopandatrail.jpg" alt="Tragopan trail">
+    <img src="images/homepage/homepage_forest6.jpg" alt="Forest trail in Northeast India">
     <div>
       <h3>Designed for curiosity</h3>
-      <p>
-        For birders, families, photographers, researchers and travellers who want depth, not rush.
-      </p>
+      <p>For birders, families, photographers, researchers and travellers who want depth, not rush.</p>
     </div>
   </div>
 </section>
