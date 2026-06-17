@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cultural Tours | Pushpa Tours & Travels</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f4efe6;
+      color: #243126;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 92vh;
+      background:
+        linear-gradient(rgba(8, 28, 20, 0.42), rgba(8, 28, 20, 0.68)),
+        url("images/culture/culture_tribal_festival1.jpg") center/cover no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px 8%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav img {
+      width: 250px;
+      height: auto;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      transition: all 0.25s ease;
+      margin-left: 10px;
+    }
+
+    nav a:hover {
+      background: rgba(214,168,79,0.9);
+      color: #17351f;
+      border-color: rgba(214,168,79,1);
+      transform: translateY(-2px);
+    }
+
+    nav a.active {
+      background: #d6a84f;
+      color: #17351f;
+      font-weight: 700;
+    }
+
+    .hero-text {
+      max-width: 780px;
+      padding-bottom: 80px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.85rem;
+      color: #d6c38b;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      margin-bottom: 24px;
+    }
+
+    .hero-text p {
+      font-size: 1.25rem;
+      max-width: 660px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 26px;
+      background: #d6a84f;
+      color: #1e2b20;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    section { padding: 80px 8%; }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .intro h2,
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      color: #17351f;
+    }
+
+    .intro p {
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+    }
+
+    img { cursor: zoom-in; }
+
+    .intro img {
+      width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 24px 50px rgba(0,0,0,0.22);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .stat {
+      background: #fffaf0;
+      padding: 24px;
+      border-radius: 22px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      color: #9b6b22;
+    }
+
+    .gallery {
+      background: #17351f;
+      color: white;
+    }
+
+    .gallery .section-title {
+      color: white;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      border-radius: 22px;
+    }
+
+    .flexible-box {
+      background:#f1e2bf;
+      border-left:6px solid #d6a84f;
+      padding:32px;
+      border-radius:22px;
+      margin:42px 0 50px 0;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .flexible-box h3 {
+      margin-bottom:14px;
+      color:#17351f;
+      font-size: 1.55rem;
+    }
+
+    .experiences {
+      background: #fffaf0;
+    }
+
+    .culture-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 36px;
+    }
+
+    .culture-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+    }
+
+    .culture-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .culture-card div {
+      padding: 28px;
+    }
+
+    .culture-card h3 {
+      color: #17351f;
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+    }
+
+    .destination-section {
+      background: #e5dccb;
+    }
+
+    .destination-list {
+      display: grid;
+      gap: 38px;
+      margin-top: 36px;
+    }
+
+    .destination-feature {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 36px;
+      align-items: center;
+      background: white;
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.10);
+    }
+
+    .destination-feature:nth-child(even) {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    .destination-feature:nth-child(even) img {
+      order: 2;
+    }
+
+    .destination-feature img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+    }
+
+    .destination-text {
+      padding: 42px;
+    }
+
+    .destination-text .label {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 14px;
+      background: #f1e2bf;
+      color: #17351f;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .destination-text h3 {
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      color: #17351f;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .destination-text p {
+      font-size: 1.07rem;
+      color: #314135;
+    }
+
+    .festival-section {
+      background:
+        linear-gradient(rgba(23, 53, 31, 0.86), rgba(23, 53, 31, 0.86)),
+        url("images/culture/culture_tribal_festival4.jpg") center/cover fixed;
+      color: white;
+    }
+
+    .festival-section .section-title {
+      color: white;
+    }
+
+    .festival-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 36px;
+    }
+
+    .festival-item {
+      background: rgba(255,255,255,0.11);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 24px;
+      padding: 26px;
+      backdrop-filter: blur(6px);
+    }
+
+    .festival-item h3 {
+      color: #d6a84f;
+      margin-bottom: 10px;
+    }
+
+    .sample {
+      background: #fffaf0;
+    }
+
+    .timeline {
+      max-width: 950px;
+      margin: 40px auto 0;
+    }
+
+    .day-card {
+      background: white;
+      border-left: 6px solid #d6a84f;
+      padding: 28px;
+      margin-bottom: 22px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .day-card h3 {
+      color: #17351f;
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+    }
+
+    .cta {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: center;
+      background: #e5dccb;
+    }
+
+    .cta img {
+      width: 100%;
+      border-radius: 26px;
+      box-shadow: 0 20px 42px rgba(0,0,0,0.18);
+    }
+
+    footer {
+      background: #102017;
+      color: white;
+      padding: 46px 8%;
+      text-align: center;
+    }
+
+    footer a {
+      color: #d6a84f;
+      text-decoration: none;
+    }
+
+    .image-popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(5, 14, 9, 0.88);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    .image-popup.active {
+      display: flex;
+    }
+
+    .image-popup img {
+      max-width: 94vw;
+      max-height: 86vh;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 28px 80px rgba(0,0,0,0.55);
+      cursor: default;
+      background: #f4efe6;
+    }
+
+    .close-image-popup {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      color: #17351f;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10000;
+      transition: all 0.2s ease;
+    }
+
+    .close-image-popup:hover {
+      background: #d6a84f;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 1000px) {
+      .intro,
+      .cta,
+      .destination-feature,
+      .destination-feature:nth-child(even) {
+        grid-template-columns: 1fr;
+      }
+
+      .destination-feature:nth-child(even) img {
+        order: 0;
+      }
+
+      .stats,
+      .culture-cards,
+      .festival-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      nav div {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        margin: 8px 12px 0 0;
+      }
+
+      .stats,
+      .culture-cards,
+      .festival-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .destination-feature img {
+        height: 300px;
+      }
+
+      .destination-text {
+        padding: 28px;
+      }
+
+      .image-popup {
+        padding: 16px;
+      }
+
+      .close-image-popup {
+        top: 16px;
+        right: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <img src="images/logo_AIGen.png" alt="Pushpa Tours & Travels logo">
+
+    <div>
+      <a href="index.html">Home</a>
+      <a href="birding.html">Birding</a>
+      <a href="wildlife.html">Wildlife</a>
+      <a href="cultural.html" class="active">Cultural</a>
+      <a href="family.html">Family</a>
+      <a href="adventure.html">Adventure</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero-text">
+    <div class="eyebrow">Cultural journeys across Northeast India</div>
+    <h1>Homestays, festivals, food, farms and living traditions.</h1>
+    <p>
+      Immersive cultural tours through Arunachal Pradesh, Assam, Meghalaya and Nagaland —
+      designed around village life, traditional homes, regional cuisines, festivals and warm local hospitality.
+    </p>
+    <a class="button" href="#culture-experiences">Explore cultural tours</a>
+  </div>
+</header>
+
+<section class="intro">
+  <div>
+    <h2>Travel slowly, stay locally, experience deeply</h2>
+    <p>
+      Northeast India is one of India’s richest cultural regions, home to hundreds of communities,
+      languages, food traditions, festivals, faiths and landscape-based ways of life. Arunachal Pradesh
+      alone has more than 26 major tribes and over 100 sub-tribes, each with distinct customs and
+      traditions.
+    </p>
+    <p>
+      Our cultural tours are designed for travellers who want more than sightseeing. Stay in traditional
+      homes or curated homestays, eat local food, visit farms and tea gardens, attend festivals when
+      seasons allow, and spend time with guides who can interpret the stories behind the landscapes.
+    </p>
+
+    <div class="stats">
+      <div class="stat"><strong>1–15</strong>days</div>
+      <div class="stat"><strong>1–20+</strong>group size</div>
+      <div class="stat"><strong>4</strong>states</div>
+      <div class="stat"><strong>100%</strong>customisable</div>
+    </div>
+  </div>
+
+  <img src="images/culture/culture_homestay_traditional.jpg" alt="Traditional homestay in Northeast India">
+</section>
+
+<section class="gallery">
+  <h2 class="section-title">A cultural journey shaped by people and place</h2>
+  <p>
+    Village stays, traditional kitchens, farms, tea gardens, monasteries, craft traditions,
+    community festivals and everyday conversations can all become part of your journey.
+  </p>
+
+  <div class="gallery-grid">
+    <img src="images/culture/culture_homestay_village.jpg" alt="Village homestay">
+    <img src="images/culture/culture_tribal_woman_cooking.jpg" alt="Traditional cooking">
+    <img src="images/culture/culture_tribal_festival2.jpg" alt="Traditional festival">
+    <img src="images/culture/culture_tea_garden_assam.jpg" alt="Tea garden in Assam">
+    <img src="images/culture/culture_kiwi_farm.jpg" alt="Kiwi farm in Arunachal Pradesh">
+  </div>
+</section>
+
+<section class="experiences" id="culture-experiences">
+  <h2 class="section-title">Choose your cultural focus</h2>
+  <p>
+    Build your journey around homestays, food, festivals, village walks, farms, monasteries,
+    tea gardens or a combination of culture and nature.
+  </p>
+
+  <div class="flexible-box">
+    <h3>Flexible cultural itineraries, from one night to a deeper journey</h3>
+    <p>
+      You can add a single night in a village homestay to a birding or wildlife itinerary, spend a
+      weekend exploring Assam tea gardens and local cuisine, or plan a longer 7–15 day cultural route
+      through Arunachal Pradesh, Assam, Meghalaya and Nagaland.
+    </p>
+    <p>
+      Tell us whether you are interested in traditional architecture, local food, festivals, farming,
+      textiles, monasteries, community life or photography. We will help design a respectful, practical
+      and immersive itinerary around your interests and travel style.
+    </p>
+  </div>
+
+  <div class="culture-cards">
+    <div class="culture-card">
+      <img src="images/culture/culture_homestay_hut.jpg" alt="Traditional hut homestay">
+      <div>
+        <h3>Traditional Huts & Homestays</h3>
+        <p>
+          Stay in carefully selected village homes, traditional huts or family-run homestays where
+          possible. These experiences are ideal for travellers who want warmth, simplicity, local
+          food and meaningful conversations rather than a standard hotel-only journey.
+        </p>
+      </div>
+    </div>
+
+    <div class="culture-card">
+      <img src="images/culture/culture_cuisine1.jpg" alt="Local cuisine of Northeast India">
+      <div>
+        <h3>Local Cuisine & Kitchens</h3>
+        <p>
+          Experience regional food traditions through home-cooked meals, local produce, bamboo shoots,
+          fermented flavours, rice-based meals, smoked meats, seasonal vegetables, millet or rice-based
+          preparations, tea and village kitchen conversations.
+        </p>
+      </div>
+    </div>
+
+    <div class="culture-card">
+      <img src="images/culture/culture_tribal_festival3.jpg" alt="Tribal festival in Northeast India">
+      <div>
+        <h3>Festivals & Community Gatherings</h3>
+        <p>
+          When dates align, we can plan tours around festivals, dances, rituals, harvest celebrations,
+          craft displays and community gatherings. These experiences are seasonal and must be approached
+          with respect, sensitivity and local guidance.
+        </p>
+      </div>
+    </div>
+
+    <div class="culture-card">
+      <img src="images/culture/culture_blueberry_farms.jpg" alt="Blueberry farms">
+      <div>
+        <h3>Farms, Orchards & Village Landscapes</h3>
+        <p>
+          Explore kiwi farms, orange orchards, blueberry farms, paddy fields, terrace agriculture and
+          village landscapes. These slower experiences help visitors understand how food, seasons and
+          mountain life are connected.
+        </p>
+      </div>
+    </div>
+
+    <div class="culture-card">
+      <img src="images/culture/culture_tea_garden_assam.jpg" alt="Assam tea garden">
+      <div>
+        <h3>Assam Tea Garden Experiences</h3>
+        <p>
+          Walk through tea gardens, learn about Assam’s tea culture, enjoy tea-tasting experiences and
+          understand how tea estates, river valleys and local communities shape the cultural landscape
+          of Assam.
+        </p>
+      </div>
+    </div>
+
+    <div class="culture-card">
+      <img src="images/culture/culture_tribal_woman_in_kitchen.jpg" alt="Traditional kitchen">
+      <div>
+        <h3>Craft, Daily Life & Storytelling</h3>
+        <p>
+          Cultural travel is often found in everyday moments: weaving, cooking, farming, storytelling,
+          market visits, village walks, prayer flags, traditional houses and shared meals with local hosts.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="destination-section">
+  <h2 class="section-title">Cultural landscapes we can build into your journey</h2>
+  <p>
+    Each region offers a different cultural rhythm. We can focus on one landscape or combine several
+    into a broader Northeast India journey.
+  </p>
+
+  <div class="destination-list">
+
+    <article class="destination-feature">
+      <img src="images/culture/culture_homestay_arunachal.jpg" alt="Homestay in Arunachal Pradesh">
+      <div class="destination-text">
+        <span class="label">Arunachal Pradesh</span>
+        <h3>Bugun, Sherdukpen, Monpa, Apatani and Mishmi cultural worlds</h3>
+        <p>
+          Arunachal Pradesh is culturally diverse, with communities whose identities are closely tied
+          to mountains, forests, agriculture, Buddhism, animist traditions, village institutions and
+          seasonal festivals. Cultural routes can include the Bugun and Sherdukpen landscapes of West
+          Kameng, Monpa monasteries and highland settlements around Tawang and Dirang, Apatani valley
+          culture around Ziro, and Mishmi landscapes further east.
+        </p>
+      </div>
+    </article>
+
+    <article class="destination-feature">
+      <img src="images/culture/culture_homestay_assam.jpg" alt="Assam homestay">
+      <div class="destination-text">
+        <span class="label">Assam</span>
+        <h3>Tea gardens, river valleys, Bihu and Assamese hospitality</h3>
+        <p>
+          Assam offers a rich cultural mix shaped by the Brahmaputra, tea gardens, village life,
+          handloom traditions, music, food and festivals such as Bihu. Cultural tours can combine
+          wildlife in Kaziranga or Nameri with tea estate visits, Assamese meals, village stays,
+          handloom traditions, river landscapes and local markets.
+        </p>
+      </div>
+    </article>
+
+    <article class="destination-feature">
+      <img src="images/culture/culture_homestay_pakke.jpg" alt="Community homestay near Pakke">
+      <div class="destination-text">
+        <span class="label">Pakke & West Kameng</span>
+        <h3>Community-based travel and conservation-linked stays</h3>
+        <p>
+          Around Pakke, Nameri and West Kameng, cultural travel can be closely linked with forests,
+          birding, conservation and community-based tourism. These journeys are especially suitable
+          for travellers who want to understand how local livelihoods, forest knowledge and ecological
+          stewardship come together.
+        </p>
+      </div>
+    </article>
+
+    <article class="destination-feature">
+      <img src="images/culture/culture_tribal_festival1.jpg" alt="Festival in Meghalaya or Nagaland">
+      <div class="destination-text">
+        <span class="label">Meghalaya & Nagaland</span>
+        <h3>Khasi, Jaintia, Garo and Naga cultural routes</h3>
+        <p>
+          Meghalaya is home to Khasi, Jaintia and Garo communities, known for distinctive food,
+          village institutions, sacred groves, music, festivals and hill landscapes. Nagaland offers
+          powerful cultural experiences through Naga village life, food, crafts, music and major
+          gatherings such as the Hornbill Festival near Kohima.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="festival-section">
+  <h2 class="section-title">Festivals and seasonal highlights</h2>
+  <p>
+    Festival-based tours depend on dates, permissions, logistics and local advice. When possible,
+    we can help align your itinerary with cultural events and seasonal celebrations.
+  </p>
+
+  <div class="festival-grid">
+    <div class="festival-item">
+      <h3>Arunachal Festivals</h3>
+      <p>
+        Losar and Torgya in Monpa Buddhist areas, Dree among the Apatani, and other tribal
+        festivals can offer windows into ritual life, food, dress, dance and community gathering.
+      </p>
+    </div>
+
+    <div class="festival-item">
+      <h3>Assam Bihu & Tea Culture</h3>
+      <p>
+        Bihu celebrations, tea garden landscapes, Assamese cuisine, handloom traditions and
+        river-valley life can be built into relaxed cultural itineraries.
+      </p>
+    </div>
+
+    <div class="festival-item">
+      <h3>Meghalaya Traditions</h3>
+      <p>
+        Khasi, Jaintia and Garo cultural experiences can include local food, village walks,
+        sacred groves, markets, music and seasonal festivals such as Nongkrem and Wangala.
+      </p>
+    </div>
+
+    <div class="festival-item">
+      <h3>Nagaland Hornbill Festival</h3>
+      <p>
+        The Hornbill Festival brings together Naga cultural performances, food, crafts, music
+        and community displays, making it one of the best-known cultural events in Northeast India.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="sample">
+  <h2 class="section-title">Sample cultural itineraries</h2>
+  <p>
+    These are sample ideas only. We can shorten, extend or combine them with birding, wildlife,
+    family or adventure travel.
+  </p>
+
+  <div class="timeline">
+    <div class="day-card">
+      <h3>1–2 Days: Village Homestay Add-on</h3>
+      <p>
+        Add a short cultural stay to a birding or wildlife itinerary. Ideal for visitors who want
+        one night in a local home, traditional food, village walks and a slower glimpse of everyday life.
+      </p>
+    </div>
+
+    <div class="day-card">
+      <h3>3–5 Days: Assam Tea, Food & River Valleys</h3>
+      <p>
+        Combine tea garden visits, Assamese cuisine, local markets, handloom traditions, river landscapes
+        and wildlife or birding around Kaziranga and Nameri.
+      </p>
+    </div>
+
+    <div class="day-card">
+      <h3>5–7 Days: West Kameng Cultural Landscape</h3>
+      <p>
+        Explore Dirang, Sangti, Shergaon, Pakke-side villages and the Bugun-Sherdukpen cultural region
+        through homestays, farms, monasteries, village walks and mountain landscapes.
+      </p>
+    </div>
+
+    <div class="day-card">
+      <h3>7–10 Days: Tawang, Monasteries & Highland Culture</h3>
+      <p>
+        Travel through Dirang, Sela Pass and Tawang for Monpa culture, Buddhist monasteries,
+        highland food, dramatic landscapes, prayer flags, mountain villages and seasonal festivals.
+      </p>
+    </div>
+
+    <div class="day-card">
+      <h3>10–15 Days: Northeast India Cultural Circuit</h3>
+      <p>
+        A deeper route combining Arunachal Pradesh, Assam, Meghalaya or Nagaland depending on season,
+        interests and pace. Best suited for travellers who want a broad, immersive cultural journey.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <img src="images/culture/culture_tribal_woman.jpg" alt="Traditional cultural portrait">
+
+  <div>
+    <h2 class="section-title">Tell us the kind of cultural experience you want</h2>
+    <p>
+      Some travellers want festivals and photography. Some want quiet homestays, village walks and
+      local food. Others want tea gardens, monasteries, farms, crafts, markets or traditional kitchens.
+    </p>
+    <p>
+      Share your interests, dates, group size and comfort preferences. We will help design a respectful,
+      locally grounded cultural journey that feels personal rather than packaged.
+    </p>
+    <a class="button" href="contact.html">Plan a cultural tour</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <h2>Pushpa Tours & Travels</h2>
+  <p>Birding, wildlife, cultural, family and adventure tours across Northeast India.</p>
+  <p>
+    Email: <a href="mailto:puspalalsharma20@gmail.com">your-puspalalsharma20@gmail.com</a> |
+    Phone/WhatsApp: <a href="tel:+919678039675">+91 96780 39675</a>
+  </p>
+</footer>
+
+<div class="image-popup" id="imagePopup">
+  <button class="close-image-popup" onclick="closeImagePopup()">×</button>
+  <img id="popupImage" src="" alt="">
+</div>
+
+<script>
+  const popup = document.getElementById("imagePopup");
+  const popupImage = document.getElementById("popupImage");
+
+  document.querySelectorAll("img").forEach(function(image) {
+    image.addEventListener("click", function() {
+      popupImage.src = this.src;
+      popupImage.alt = this.alt;
+      popup.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeImagePopup() {
+    popup.classList.remove("active");
+    popupImage.src = "";
+    document.body.style.overflow = "";
+  }
+
+  popup.addEventListener("click", function(event) {
+    if (event.target === popup) {
+      closeImagePopup();
+    }
+  });
+
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+      closeImagePopup();
+    }
+  });
+</script>
+
+</body>
+</html>
