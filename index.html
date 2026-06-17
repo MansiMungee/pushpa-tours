@@ -34,7 +34,7 @@
 
     nav img {
       width: 250px;
-      border-radius: 50%;
+      border-radius: 5%;
       background: white;
       padding: 1px;
     }
@@ -224,25 +224,73 @@
       margin-bottom: 20px;
     }
 
-    .destinations { background: #fffaf0; }
+    .destinations {
+      background: #fffaf0;
+    }
 
-    .destination-grid {
+    .destinations-intro {
+      max-width: 900px;
+      margin-bottom: 48px;
+    }
+
+    .destination-list {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 18px;
+      gap: 44px;
       margin-top: 36px;
     }
 
-    .destination {
+    .destination-feature {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 36px;
+      align-items: center;
       background: white;
-      padding: 26px;
-      border-radius: 24px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.10);
     }
 
-    .destination h3 {
+    .destination-feature:nth-child(even) {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    .destination-feature:nth-child(even) img {
+      order: 2;
+    }
+
+    .destination-feature img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+    }
+
+    .destination-text {
+      padding: 42px;
+    }
+
+    .destination-text .label {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 14px;
+      background: #f1e2bf;
       color: #17351f;
-      margin-bottom: 8px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .destination-text h3 {
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      color: #17351f;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .destination-text p {
+      font-size: 1.07rem;
+      color: #314135;
     }
 
     .feature-strip {
@@ -298,94 +346,21 @@
       color: #d6a84f;
       text-decoration: none;
     }
-.destination {
-  border: none;
-  text-align: left;
-  cursor: pointer;
-  font-family: inherit;
-  color: #243126;
-  transition: all 0.25s ease;
-}
 
-.destination:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 38px rgba(0,0,0,0.16);
-  background: #f7ecd6;
-}
-
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(8, 25, 18, 0.72);
-  backdrop-filter: blur(8px);
-  z-index: 999;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
-
-.modal-box {
-  width: min(920px, 94vw);
-  max-height: 88vh;
-  overflow-y: auto;
-  background: rgba(255, 250, 240, 0.92);
-  border-radius: 30px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
-  position: relative;
-}
-
-.modal-box img {
-  width: 100%;
-  height: 330px;
-  object-fit: cover;
-  border-radius: 30px 30px 0 0;
-}
-
-.modal-content {
-  padding: 34px;
-}
-
-.modal-content h2 {
-  color: #17351f;
-  font-size: 2.2rem;
-  margin-bottom: 16px;
-}
-
-.modal-content p {
-  font-size: 1.05rem;
-  color: #243126;
-}
-
-.close-modal {
-  position: absolute;
-  top: 18px;
-  right: 22px;
-  width: 42px;
-  height: 42px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(16, 32, 23, 0.85);
-  color: white;
-  font-size: 2rem;
-  line-height: 1;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.close-modal:hover {
-  background: #d6a84f;
-  color: #17351f;
-}
     @media (max-width: 1000px) {
-      .experience-grid,
-      .destination-grid {
+      .experience-grid {
         grid-template-columns: 1fr 1fr;
       }
 
       .feature-strip,
-      .intro {
+      .intro,
+      .destination-feature,
+      .destination-feature:nth-child(even) {
         grid-template-columns: 1fr;
+      }
+
+      .destination-feature:nth-child(even) img {
+        order: 0;
       }
     }
 
@@ -404,9 +379,16 @@
         margin: 8px 12px 0 0;
       }
 
-      .experience-grid,
-      .destination-grid {
+      .experience-grid {
         grid-template-columns: 1fr;
+      }
+
+      .destination-feature img {
+        height: 300px;
+      }
+
+      .destination-text {
+        padding: 28px;
       }
     }
   </style>
@@ -517,37 +499,91 @@
 </section>
 
 <section class="destinations" id="destinations">
-  <h2 class="section-title">Key destinations</h2>
-  <p>
-    From riverine forests and high Himalayan passes to monasteries, grasslands and quiet mountain valleys,
-    these are some of the signature landscapes that shape our Northeast India journeys.
-  </p>
+  <div class="destinations-intro">
+    <h2 class="section-title">Key destinations</h2>
+    <p>
+      From riverine forests and high Himalayan passes to monasteries, grasslands and quiet mountain valleys,
+      these are some of the signature landscapes that shape our Northeast India journeys.
+    </p>
+  </div>
 
-  <div class="destination-grid">
-    <button class="destination" onclick="openDestination('nameri')">
-      <h3>Nameri National Park</h3>
-      <p>River forests, rafting, wildlife and quiet wilderness in Assam.</p>
-    </button>
+  <div class="destination-list">
 
-    <button class="destination" onclick="openDestination('eaglenest')">
-      <h3>Eaglenest Wildlife Sanctuary</h3>
-      <p>Cloud forests, mountain roads, biodiversity and Himalayan views.</p>
-    </button>
+    <article class="destination-feature">
+      <img src="images/homepage/nameri_np_cover.jpg" alt="Nameri National Park">
+      <div class="destination-text">
+        <span class="label">Assam</span>
+        <h3>Nameri National Park</h3>
+        <p>
+          Nestled along the crystal-clear waters of the Kameng River at the foothills of the Eastern Himalaya,
+          Nameri is one of Assam’s most tranquil wilderness destinations. Its evergreen forests, bamboo groves,
+          rolling riverbanks and open grasslands offer visitors a peaceful introduction to Northeast India.
+          Travellers can enjoy riverside walks, rafting, wildlife watching, nature photography and village visits.
+          Together with the adjoining Pakke landscape, Nameri forms an important conservation area home to elephants,
+          gaur, leopards, rich birdlife, butterflies and remarkable plant diversity.
+        </p>
+      </div>
+    </article>
 
-    <button class="destination" onclick="openDestination('mandala')">
-      <h3>Mandala & Phudung</h3>
-      <p>Prayer flags, rhododendrons, mountain ridges and solitude.</p>
-    </button>
+    <article class="destination-feature">
+      <img src="images/homepage/eaglenest_cover.jpg" alt="Eaglenest Wildlife Sanctuary">
+      <div class="destination-text">
+        <span class="label">Arunachal Pradesh</span>
+        <h3>Eaglenest Wildlife Sanctuary</h3>
+        <p>
+          Hidden in the mountains of Arunachal Pradesh, Eaglenest Wildlife Sanctuary is one of the Eastern Himalaya’s
+          most spectacular natural landscapes. A winding mountain road carries visitors from lush subtropical valleys
+          to cool cloud forests, waterfalls, rhododendron slopes and panoramic viewpoints. Known globally for its
+          biodiversity, Eaglenest is also a deeply atmospheric travel experience shaped by wilderness, mountain cultures
+          and the surrounding Bugun and Sherdukpen communities.
+        </p>
+      </div>
+    </article>
 
-    <button class="destination" onclick="openDestination('sangti')">
-      <h3>Sangti Valley & Sela Pass</h3>
-      <p>Valleys, high passes, glacial lakes and dramatic Himalayan scenery.</p>
-    </button>
+    <article class="destination-feature">
+      <img src="mandala_cover.jpg" alt="Mandala and Phudung">
+      <div class="destination-text">
+        <span class="label">West Kameng</span>
+        <h3>Mandala & Phudung</h3>
+        <p>
+          Perched high in West Kameng district, Mandala and Phudung remain among Arunachal Pradesh’s quiet mountain
+          secrets. Prayer-flag-lined ridges, winding roads, cool forests and sweeping Himalayan views make this region
+          ideal for photographers, nature lovers and travellers seeking solitude. In spring and early summer,
+          rhododendrons and wildflowers bring colour to the hillsides, creating one of the most serene landscapes
+          in the region.
+        </p>
+      </div>
+    </article>
 
-    <button class="destination" onclick="openDestination('kaziranga')">
-      <h3>Kaziranga National Park</h3>
-      <p>Rhinos, grasslands, wetlands, tea country and Assamese culture.</p>
-    </button>
+    <article class="destination-feature">
+      <img src="sela_cover.jpg" alt="Sangti Valley and Sela Pass">
+      <div class="destination-text">
+        <span class="label">Eastern Himalaya</span>
+        <h3>Sangti Valley & Sela Pass</h3>
+        <p>
+          The journey from Sangti Valley to Sela Pass reveals the dramatic contrasts of the Eastern Himalaya.
+          Sangti is a broad, peaceful valley of villages, fields, forested slopes and the gentle Sangti River.
+          Higher up, Sela Pass rises above 4,000 metres into a world of glacial lakes, alpine meadows, snow slopes
+          and vast mountain views. Together, they offer one of Arunachal Pradesh’s most memorable road journeys.
+        </p>
+      </div>
+    </article>
+
+    <article class="destination-feature">
+      <img src="images/homepage/kaziranga_cover.jpg" alt="Kaziranga National Park">
+      <div class="destination-text">
+        <span class="label">Assam</span>
+        <h3>Kaziranga National Park</h3>
+        <p>
+          Set within the floodplains of the Brahmaputra River, Kaziranga National Park is one of India’s most iconic
+          wildlife landscapes. Its tall grasslands, marshes, wetlands and woodland support rhinos, wild buffalo,
+          elephants, deer, migratory birds and rich floodplain biodiversity. Beyond safaris, Kaziranga also offers
+          Assamese hospitality, tea gardens, local food, handloom traditions and a powerful sense of nature unfolding
+          on a grand scale.
+        </p>
+      </div>
+    </article>
+
   </div>
 </section>
 
@@ -584,17 +620,6 @@
   <p>Pushpa Tours & Travels</p>
 </section>
 
-  <div class="modal-overlay" id="destinationModal">
-  <div class="modal-box">
-    <button class="close-modal" onclick="closeDestination()">×</button>
-    <img id="modalImage" src="" alt="">
-    <div class="modal-content">
-      <h2 id="modalTitle"></h2>
-      <p id="modalText"></p>
-    </div>
-  </div>
-</div>
-  
 <footer id="contact">
   <h2>Pushpa Tours & Travels</h2>
   <p>Birding, wildlife, cultural, family and adventure tours across Northeast India.</p>
@@ -603,57 +628,6 @@
     Phone/WhatsApp: <a href="tel:+919678039675">+91 96780 39675</a>
   </p>
 </footer>
-<script>
-const destinations = {
-  nameri: {
-    title: "Nameri National Park",
-    image: "images/homepage/nameri_np_cover.jpg",
-    text: "Nestled along the crystal-clear waters of the Kameng River at the foothills of the Eastern Himalaya, Nameri is one of Assam’s most tranquil wilderness destinations. Its evergreen forests, bamboo groves, rolling riverbanks and open grasslands offer visitors a peaceful introduction to Northeast India. Travellers can enjoy riverside walks, rafting, wildlife watching, nature photography and village visits. Together with the adjoining Pakke landscape, Nameri forms an important conservation area home to elephants, gaur, leopards, rich birdlife, butterflies and remarkable plant diversity."
-  },
 
-  eaglenest: {
-    title: "Eaglenest Wildlife Sanctuary",
-    image: "images/homepage/eaglenest_cover.jpg",
-    text: "Hidden in the mountains of Arunachal Pradesh, Eaglenest Wildlife Sanctuary is one of the Eastern Himalaya’s most spectacular natural landscapes. A winding mountain road carries visitors from lush subtropical valleys to cool cloud forests, waterfalls, rhododendron slopes and panoramic viewpoints. Known globally for its biodiversity, Eaglenest is also a deeply atmospheric travel experience shaped by wilderness, mountain cultures and the surrounding Bugun and Sherdukpen communities."
-  },
-
-  mandala: {
-    title: "Mandala and Phudung",
-    image: "mandala_cover.jpg",
-    text: "Perched high in West Kameng district, Mandala and Phudung remain among Arunachal Pradesh’s quiet mountain secrets. Prayer-flag-lined ridges, winding roads, cool forests and sweeping Himalayan views make this region ideal for photographers, nature lovers and travellers seeking solitude. In spring and early summer, rhododendrons and wildflowers bring colour to the hillsides, creating one of the most serene landscapes in the region."
-  },
-
-  sangti: {
-    title: "Sangti Valley and Sela Pass",
-    image: "sela_cover.jpg",
-    text: "The journey from Sangti Valley to Sela Pass reveals the dramatic contrasts of the Eastern Himalaya. Sangti is a broad, peaceful valley of villages, fields, forested slopes and the gentle Sangti River. Higher up, Sela Pass rises above 4,000 metres into a world of glacial lakes, alpine meadows, snow slopes and vast mountain views. Together, they offer one of Arunachal Pradesh’s most memorable road journeys."
-  },
-
-  kaziranga: {
-    title: "Kaziranga National Park",
-    image: "images/homepage/kaziranga_cover.jpg",
-    text: "Set within the floodplains of the Brahmaputra River, Kaziranga National Park is one of India’s most iconic wildlife landscapes. Its tall grasslands, marshes, wetlands and woodland support rhinos, wild buffalo, elephants, deer, migratory birds and rich floodplain biodiversity. Beyond safaris, Kaziranga also offers Assamese hospitality, tea gardens, local food, handloom traditions and a powerful sense of nature unfolding on a grand scale."
-  }
-};
-
-function openDestination(key) {
-  const item = destinations[key];
-  document.getElementById("modalTitle").textContent = item.title;
-  document.getElementById("modalText").textContent = item.text;
-  document.getElementById("modalImage").src = item.image;
-  document.getElementById("modalImage").alt = item.title;
-  document.getElementById("destinationModal").style.display = "flex";
-}
-
-function closeDestination() {
-  document.getElementById("destinationModal").style.display = "none";
-}
-
-document.getElementById("destinationModal").addEventListener("click", function(event) {
-  if (event.target === this) {
-    closeDestination();
-  }
-});
-</script>
 </body>
 </html>
