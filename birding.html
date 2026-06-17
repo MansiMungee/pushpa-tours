@@ -6,11 +6,7 @@
   <title>Birding Tours | Pushpa Tours & Travels</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: Georgia, 'Times New Roman', serif;
@@ -28,7 +24,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 36px 8%;
+      padding: 28px 8%;
     }
 
     nav {
@@ -39,45 +35,37 @@
 
     nav img {
       width: 250px;
-      border-radius: 50%;
-      background: white;
-      padding: 6px;
+      height: auto;
     }
 
     nav a {
-  color: white;
-  text-decoration: none;
+      color: white;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      transition: all 0.25s ease;
+      margin-left: 10px;
+    }
 
-  font-size: 1.1rem;
-  font-weight: 600;
+    nav a:hover {
+      background: rgba(214,168,79,0.9);
+      color: #17351f;
+      border-color: rgba(214,168,79,1);
+      transform: translateY(-2px);
+    }
 
-  letter-spacing: 0.5px;
+    nav a.active {
+      background: #d6a84f;
+      color: #17351f;
+      font-weight: 700;
+    }
 
-  padding: 12px 22px;
-
-  border: 1px solid rgba(255,255,255,0.35);
-  border-radius: 999px;
-
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(6px);
-
-  transition: all 0.25s ease;
-
-  margin-left: 10px;
-}
-
-nav a:hover {
-  background: rgba(214,168,79,0.9);
-  color: #17351f;
-  border-color: rgba(214,168,79,1);
-  transform: translateY(-2px);
-}
-
-nav a.active {
-  background: #d6a84f;
-  color: #17351f;
-  font-weight: 700;
-}
     .hero-text {
       max-width: 760px;
       padding-bottom: 80px;
@@ -113,9 +101,7 @@ nav a.active {
       font-weight: bold;
     }
 
-    section {
-      padding: 80px 8%;
-    }
+    section { padding: 80px 8%; }
 
     .intro {
       display: grid;
@@ -132,9 +118,17 @@ nav a.active {
       color: #17351f;
     }
 
+    .gallery .section-title {
+      color: white;
+    }
+
     .intro p {
       font-size: 1.08rem;
       margin-bottom: 18px;
+    }
+
+    img {
+      cursor: zoom-in;
     }
 
     .intro img {
@@ -216,6 +210,11 @@ nav a.active {
       padding: 50px;
     }
 
+    .species h2 {
+      color: white;
+      margin-bottom: 18px;
+    }
+
     .species-list {
       columns: 3;
       column-gap: 36px;
@@ -268,7 +267,7 @@ nav a.active {
     footer {
       background: #102017;
       color: white;
-      padding: 42px 8%;
+      padding: 46px 8%;
       text-align: center;
     }
 
@@ -277,10 +276,87 @@ nav a.active {
       text-decoration: none;
     }
 
-    @media (max-width: 850px) {
+    .image-popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(5, 14, 9, 0.88);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    .image-popup.active {
+      display: flex;
+    }
+
+    .image-popup img {
+      max-width: 94vw;
+      max-height: 86vh;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 28px 80px rgba(0,0,0,0.55);
+      cursor: default;
+      background: #f4efe6;
+    }
+
+    .close-image-popup {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      color: #17351f;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10000;
+      transition: all 0.2s ease;
+    }
+
+    .close-image-popup:hover {
+      background: #d6a84f;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 1000px) {
       .intro,
       .camp {
         grid-template-columns: 1fr;
+      }
+
+      .stats,
+      .tour-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .species-list {
+        columns: 2;
+      }
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      nav div {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        margin: 8px 12px 0 0;
       }
 
       .stats,
@@ -293,18 +369,13 @@ nav a.active {
         columns: 1;
       }
 
-      nav {
-        align-items: flex-start;
-        gap: 12px;
+      .image-popup {
+        padding: 16px;
       }
 
-      nav div {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      nav a {
-        margin: 8px 12px 0 0;
+      .close-image-popup {
+        top: 16px;
+        right: 16px;
       }
     }
   </style>
@@ -314,17 +385,18 @@ nav a.active {
 
 <header>
   <nav>
-  <img src="images/logo_AIGen.png" alt="Pushpa Tours & Travels logo">
+    <img src="images/logo_AIGen.png" alt="Pushpa Tours & Travels logo">
 
-  <div>
-    <a href="index.html">Home</a>
-    <a href="birding.html" class="active">Birding</a>
-    <a href="wildlife.html">Wildlife</a>
-    <a href="cultural.html">Cultural</a>
-    <a href="family.html">Family</a>
-    <a href="adventure.html">Adventure</a>
-    <a href="#contact">Contact</a>
-  </div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="birding.html" class="active">Birding</a>
+      <a href="wildlife.html">Wildlife</a>
+      <a href="cultural.html">Cultural</a>
+      <a href="family.html">Family</a>
+      <a href="adventure.html">Adventure</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
   <div class="hero-text">
     <div class="eyebrow">Northeast India Birding Expeditions</div>
@@ -346,8 +418,9 @@ nav a.active {
       and the wet escarpments of Shillong and Cherrapunji.
     </p>
     <p>
-      The original itinerary describes Eaglenest as one of Asia’s top birding areas, with an
-      exceptional altitudinal range and around 750 bird species recorded across the wider circuit.
+      Eaglenest is widely known among birders as one of Asia’s most exciting birding landscapes,
+      and the wider Northeast India circuit offers a remarkable mix of lowland forest birds,
+      grassland specialists, high-altitude Himalayan species and Eastern Himalayan endemics.
     </p>
 
     <div class="stats">
@@ -380,8 +453,8 @@ nav a.active {
 <section class="itinerary" id="itinerary">
   <h2 class="section-title">Sample 21-day birding itinerary</h2>
   <p>
-    Based on the uploaded Northeast India bird tour itinerary covering Kaziranga, Nameri,
-    Eaglenest, Dirang, Shillong and Cherrapunji.
+    A carefully paced birding journey through Kaziranga, Nameri, Eaglenest, Dirang,
+    Shillong and Cherrapunji.
   </p>
 
   <div class="timeline">
@@ -407,10 +480,10 @@ nav a.active {
     <div class="day-card">
       <h3>Days 7–15: Eaglenest Wildlife Sanctuary</h3>
       <p>
-        Spend nine nights across Sessni, Bompu and Lama Camp, birding from roughly 500 to
-        2900 m. Target species include Bugun Liocichla, Ward’s Trogon, Beautiful Nuthatch,
-        Wedge-billed Wren-Babbler, Fire-tailed Myzornis, Rufous-necked Hornbill,
-        Purple Cochoa and multiple laughingthrushes, babblers and sibias.
+        Spend several days across Sessni, Bompu and Lama Camp, birding from subtropical forest
+        to cool montane habitats. Target species include Bugun Liocichla, Ward’s Trogon,
+        Beautiful Nuthatch, Wedge-billed Wren-Babbler, Fire-tailed Myzornis,
+        Rufous-necked Hornbill, Purple Cochoa and multiple laughingthrushes, babblers and sibias.
       </p>
     </div>
 
@@ -510,18 +583,55 @@ nav a.active {
       The rhythm is designed for serious birders: early starts, packed field days, warm meals,
       local guidance and enough flexibility to respond to sightings, weather and target priorities.
     </p>
-    <a class="button" href="#contact">Plan a birding tour</a>
+    <a class="button" href="contact.html">Plan a birding tour</a>
   </div>
 </section>
 
 <footer id="contact">
   <h2>Pushpa Tours & Travels</h2>
-  <p>Birding, wildlife and cultural journeys across Northeast India.</p>
+  <p>Birding, wildlife, cultural, family and adventure tours across Northeast India.</p>
   <p>
-    Email: <a href="mailto:your-email@example.com">your-email@example.com</a> |
-    Phone/WhatsApp: <a href="tel:+910000000000">+91 00000 00000</a>
+    Email: <a href="mailto:puspalalsharma20@gmail.com">your-puspalalsharma20@gmail.com</a> |
+    Phone/WhatsApp: <a href="tel:+919678039675">+91 96780 39675</a>
   </p>
 </footer>
+
+<div class="image-popup" id="imagePopup">
+  <button class="close-image-popup" onclick="closeImagePopup()">×</button>
+  <img id="popupImage" src="" alt="">
+</div>
+
+<script>
+  const popup = document.getElementById("imagePopup");
+  const popupImage = document.getElementById("popupImage");
+
+  document.querySelectorAll("img").forEach(function(image) {
+    image.addEventListener("click", function() {
+      popupImage.src = this.src;
+      popupImage.alt = this.alt;
+      popup.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeImagePopup() {
+    popup.classList.remove("active");
+    popupImage.src = "";
+    document.body.style.overflow = "";
+  }
+
+  popup.addEventListener("click", function(event) {
+    if (event.target === popup) {
+      closeImagePopup();
+    }
+  });
+
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+      closeImagePopup();
+    }
+  });
+</script>
 
 </body>
 </html>
