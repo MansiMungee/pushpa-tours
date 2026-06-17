@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wildlife Tours | Pushpa Tours & Travels</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f4efe6;
+      color: #243126;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 92vh;
+      background:
+        linear-gradient(rgba(8, 28, 20, 0.45), rgba(8, 28, 20, 0.68)),
+        url("images/wildlife/wildlife_mammal_rhino.jpg") center/cover no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px 8%;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav img {
+      width: 250px;
+      height: auto;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      transition: all 0.25s ease;
+      margin-left: 10px;
+    }
+
+    nav a:hover {
+      background: rgba(214,168,79,0.9);
+      color: #17351f;
+      border-color: rgba(214,168,79,1);
+      transform: translateY(-2px);
+    }
+
+    nav a.active {
+      background: #d6a84f;
+      color: #17351f;
+      font-weight: 700;
+    }
+
+    .hero-text {
+      max-width: 780px;
+      padding-bottom: 80px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.85rem;
+      color: #d6c38b;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
+      margin-bottom: 24px;
+    }
+
+    .hero-text p {
+      font-size: 1.25rem;
+      max-width: 660px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 26px;
+      background: #d6a84f;
+      color: #1e2b20;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    section { padding: 80px 8%; }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .intro h2,
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      color: #17351f;
+    }
+
+    .intro p {
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+    }
+
+    img { cursor: zoom-in; }
+
+    .intro img {
+      width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 24px 50px rgba(0,0,0,0.22);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .stat {
+      background: #fffaf0;
+      padding: 24px;
+      border-radius: 22px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      color: #9b6b22;
+    }
+
+    .gallery {
+      background: #17351f;
+      color: white;
+    }
+
+    .gallery .section-title {
+      color: white;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 245px;
+      object-fit: cover;
+      border-radius: 22px;
+    }
+
+    .flexible-box {
+      background:#f1e2bf;
+      border-left:6px solid #d6a84f;
+      padding:32px;
+      border-radius:22px;
+      margin:42px 0 50px 0;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .flexible-box h3 {
+      margin-bottom:14px;
+      color:#17351f;
+      font-size: 1.55rem;
+    }
+
+    .experiences {
+      background: #fffaf0;
+    }
+
+    .wildlife-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 36px;
+    }
+
+    .wildlife-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+    }
+
+    .wildlife-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .wildlife-card div {
+      padding: 28px;
+    }
+
+    .wildlife-card h3 {
+      color: #17351f;
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+    }
+
+    .destination-section {
+      background: #e5dccb;
+    }
+
+    .destination-list {
+      display: grid;
+      gap: 38px;
+      margin-top: 36px;
+    }
+
+    .destination-feature {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 36px;
+      align-items: center;
+      background: white;
+      border-radius: 34px;
+      overflow: hidden;
+      box-shadow: 0 18px 42px rgba(0,0,0,0.10);
+    }
+
+    .destination-feature:nth-child(even) {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    .destination-feature:nth-child(even) img {
+      order: 2;
+    }
+
+    .destination-feature img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+    }
+
+    .destination-text {
+      padding: 42px;
+    }
+
+    .destination-text .label {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 14px;
+      background: #f1e2bf;
+      color: #17351f;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .destination-text h3 {
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      color: #17351f;
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+
+    .destination-text p {
+      font-size: 1.07rem;
+      color: #314135;
+    }
+
+    .specialist {
+      background:
+        linear-gradient(rgba(23, 53, 31, 0.86), rgba(23, 53, 31, 0.86)),
+        url("images/wildlife/wildlife_invert_fireflies.jpg") center/cover fixed;
+      color: white;
+    }
+
+    .specialist .section-title {
+      color: white;
+    }
+
+    .specialist-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 36px;
+    }
+
+    .specialist-item {
+      background: rgba(255,255,255,0.11);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 24px;
+      padding: 26px;
+      backdrop-filter: blur(6px);
+    }
+
+    .specialist-item h3 {
+      color: #d6a84f;
+      margin-bottom: 10px;
+    }
+
+    .sample {
+      background: #fffaf0;
+    }
+
+    .timeline {
+      max-width: 950px;
+      margin: 40px auto 0;
+    }
+
+    .day-card {
+      background: white;
+      border-left: 6px solid #d6a84f;
+      padding: 28px;
+      margin-bottom: 22px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .day-card h3 {
+      color: #17351f;
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+    }
+
+    .cta {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: center;
+      background: #e5dccb;
+    }
+
+    .cta img {
+      width: 100%;
+      border-radius: 26px;
+      box-shadow: 0 20px 42px rgba(0,0,0,0.18);
+    }
+
+    footer {
+      background: #102017;
+      color: white;
+      padding: 46px 8%;
+      text-align: center;
+    }
+
+    footer a {
+      color: #d6a84f;
+      text-decoration: none;
+    }
+
+    .image-popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(5, 14, 9, 0.88);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    .image-popup.active {
+      display: flex;
+    }
+
+    .image-popup img {
+      max-width: 94vw;
+      max-height: 86vh;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 28px 80px rgba(0,0,0,0.55);
+      cursor: default;
+      background: #f4efe6;
+    }
+
+    .close-image-popup {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      color: #17351f;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10000;
+      transition: all 0.2s ease;
+    }
+
+    .close-image-popup:hover {
+      background: #d6a84f;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 1000px) {
+      .intro,
+      .cta,
+      .destination-feature,
+      .destination-feature:nth-child(even) {
+        grid-template-columns: 1fr;
+      }
+
+      .destination-feature:nth-child(even) img {
+        order: 0;
+      }
+
+      .stats,
+      .wildlife-cards,
+      .specialist-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      nav div {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        margin: 8px 12px 0 0;
+      }
+
+      .stats,
+      .wildlife-cards,
+      .specialist-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .destination-feature img {
+        height: 300px;
+      }
+
+      .destination-text {
+        padding: 28px;
+      }
+
+      .image-popup {
+        padding: 16px;
+      }
+
+      .close-image-popup {
+        top: 16px;
+        right: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <img src="images/logo_AIGen.png" alt="Pushpa Tours & Travels logo">
+
+    <div>
+      <a href="index.html">Home</a>
+      <a href="birding.html">Birding</a>
+      <a href="wildlife.html" class="active">Wildlife</a>
+      <a href="cultural.html">Cultural</a>
+      <a href="family.html">Family</a>
+      <a href="adventure.html">Adventure</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero-text">
+    <div class="eyebrow">Wildlife tours across Northeast India</div>
+    <h1>Safaris, cloud forests, rare mammals and hidden worlds after dark.</h1>
+    <p>
+      Custom wildlife journeys through Kaziranga, Nameri, Eaglenest and the Eastern Himalaya —
+      from rhinos and elephants to frogs, snakes, orchids, fireflies and bioluminescent fungi.
+    </p>
+    <a class="button" href="#wildlife-experiences">Explore wildlife tours</a>
+  </div>
+</header>
+
+<section class="intro">
+  <div>
+    <h2>Wildlife experiences designed for curiosity, comfort and depth</h2>
+    <p>
+      Northeast India is not a single kind of wildlife destination. It is a shifting mosaic of
+      floodplain grasslands, riverine forests, subtropical valleys, cloud forests, high mountain
+      roads and quiet village landscapes. Each habitat reveals a different world.
+    </p>
+    <p>
+      With Pushpa Tours & Travels, wildlife tours can be shaped around your interests — classic
+      mammal safaris, elusive small mammals, reptiles and amphibians, butterflies, dragonflies,
+      orchids, fungi, night walks and macro-photography. We work with experienced local guides
+      and specialist naturalists to create focused, ethical and memorable field experiences.
+    </p>
+
+    <div class="stats">
+      <div class="stat"><strong>1–15</strong>days</div>
+      <div class="stat"><strong>1–20+</strong>group size</div>
+      <div class="stat"><strong>4+</strong>wildlife landscapes</div>
+      <div class="stat"><strong>100%</strong>customisable</div>
+    </div>
+  </div>
+
+  <img src="images/wildlife/wildlife_jeep_safari.jpg" alt="Jeep safari in Northeast India">
+</section>
+
+<section class="gallery">
+  <h2 class="section-title">Wildlife beyond the obvious</h2>
+  <p>
+    From charismatic mammals to tiny forest jewels, our wildlife tours are built for travellers
+    who want to slow down, observe carefully and experience the living richness of Northeast India.
+  </p>
+
+  <div class="gallery-grid">
+    <img src="images/wildlife/wildlife_mammal_rhino2.jpg" alt="One-horned rhinoceros">
+    <img src="images/wildlife/wildlife_mammal_elephant.jpg" alt="Asian elephant">
+    <img src="images/wildlife/wildlife_mammal_gibbon.jpg" alt="Gibbon in forest">
+    <img src="images/wildlife/wildlife_herp_green_snake.jpg" alt="Green snake">
+    <img src="images/wildlife/wildlife_invert_fireflies.jpg" alt="Fireflies at night">
+  </div>
+</section>
+
+<section class="experiences" id="wildlife-experiences">
+  <h2 class="section-title">Choose your wildlife focus</h2>
+  <p>
+    Start with one theme, combine several, or let us design a route that balances big wildlife,
+    rare species, photography, comfort and local experiences.
+  </p>
+
+  <div class="flexible-box">
+    <h3>Flexible itineraries, from a short safari to a specialist expedition</h3>
+    <p>
+      Every tour is built around your time, interests and comfort level. You can plan a short
+      1–2 day Kaziranga safari, a focused Eaglenest extension for elusive mammals and cloud-forest
+      biodiversity, or a longer 10–15 day wildlife journey combining Kaziranga, Nameri, Eaglenest,
+      Dirang and nearby Eastern Himalayan landscapes.
+    </p>
+    <p>
+      Whether you want to photograph rhinos in golden grasslands, search for frogs and snakes at night,
+      explore firefly-filled forest edges, or document orchids, butterflies, beetles and fungi, we can
+      connect you with the right guides, naturalists and local experts.
+    </p>
+  </div>
+
+  <div class="wildlife-cards">
+    <div class="wildlife-card">
+      <img src="images/wildlife/wildlife_mammal_bengal_tiger.jpg" alt="Bengal tiger">
+      <div>
+        <h3>Charismatic Mammal Safaris</h3>
+        <p>
+          Explore Kaziranga’s iconic floodplain landscape for Greater One-horned Rhinoceros,
+          Asian Elephant, Wild Water Buffalo, deer, raptors and, with luck, Bengal Tiger.
+          Ideal for first-time wildlife travellers, families and photographers.
+        </p>
+      </div>
+    </div>
+
+    <div class="wildlife-card">
+      <img src="images/wildlife/wildlife_mammal_red_panda.jpg" alt="Red panda">
+      <div>
+        <h3>Elusive Mammals of Cloud Forests</h3>
+        <p>
+          Eaglenest and the surrounding Eastern Himalayan forests are suited to patient
+          naturalists interested in harder-to-see species such as red panda, small cats,
+          porcupines, civets, squirrels, primates and other secretive mammals.
+        </p>
+      </div>
+    </div>
+
+    <div class="wildlife-card">
+      <img src="images/wildlife/wildlife_herp_frog.jpg" alt="Cloud forest frog">
+      <div>
+        <h3>Herpetofauna & Night Walks</h3>
+        <p>
+          Slow forest walks after rain can reveal frogs, snakes, lizards and other nocturnal
+          life of the Eastern Himalayan cloud forests. These tours are ideal for naturalists,
+          photographers and travellers who enjoy careful observation.
+        </p>
+      </div>
+    </div>
+
+    <div class="wildlife-card">
+      <img src="images/wildlife/wildlife_invert_butterfly.jpg" alt="Butterfly">
+      <div>
+        <h3>Butterflies, Dragonflies & Beetles</h3>
+        <p>
+          For macro-photography enthusiasts, the region offers extraordinary smaller wildlife:
+          butterflies, dragonflies, jewel beetles, moths, spiders and many other forest
+          invertebrates that are often missed on conventional wildlife tours.
+        </p>
+      </div>
+    </div>
+
+    <div class="wildlife-card">
+      <img src="images/wildlife/wildlife_bioluminiscent_mushroom.jpg" alt="Bioluminescent mushroom">
+      <div>
+        <h3>Fungi, Orchids & Hidden Forest Worlds</h3>
+        <p>
+          The wet forests of Northeast India are alive with seasonal fungi, orchids, mosses
+          and glowing forest details. Specialist walks can focus on bioluminescent fungi,
+          forest ecology, plant life and close-up photography.
+        </p>
+      </div>
+    </div>
+
+    <div class="wildlife-card">
+      <img src="images/wildlife/wildlife_jeep_safari2.jpg" alt="Wildlife jeep safari">
+      <div>
+        <h3>Family-friendly Wildlife Journeys</h3>
+        <p>
+          We also design easier wildlife holidays with comfortable stays, jeep safaris,
+          river landscapes, short walks, cultural stops and flexible pacing for mixed-age
+          groups and first-time Northeast India visitors.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="destination-section">
+  <h2 class="section-title">Signature wildlife landscapes</h2>
+  <p>
+    Our wildlife routes focus on the same broad Northeast India circuit as our birding tours,
+    but each itinerary is tuned to the wildlife groups, seasons and experiences you care about most.
+  </p>
+
+  <div class="destination-list">
+
+    <article class="destination-feature">
+      <img src="images/wildlife/wildlife_mammal_rhino.jpg" alt="Kaziranga rhinoceros">
+      <div class="destination-text">
+        <span class="label">Kaziranga</span>
+        <h3>Grassland safaris and iconic mammals</h3>
+        <p>
+          Kaziranga is the classic big-wildlife experience of Assam: tall elephant grass,
+          wetlands, woodland patches and open floodplains shaped by the Brahmaputra.
+          This is the place for rhinos, elephants, wild buffalo, deer, raptors and jeep safaris
+          through one of India’s most dramatic wildlife landscapes.
+        </p>
+      </div>
+    </article>
+
+    <article class="destination-feature">
+      <img src="images/wildlife/wildlife_mammal_gibbon.jpg" alt="Forest mammal in Northeast India">
+      <div class="destination-text">
+        <span class="label">Eaglenest</span>
+        <h3>Cloud forests, small mammals and nocturnal life</h3>
+        <p>
+          Eaglenest offers a completely different wildlife experience: misty forests, mountain
+          roads, deep valleys, night sounds and subtle encounters. It is best suited to travellers
+          who enjoy slow natural history — looking for mammals, frogs, snakes, insects, fungi,
+          orchids and the small details that make cloud forests unforgettable.
+        </p>
+      </div>
+    </article>
+
+    <article class="destination-feature">
+      <img src="images/wildlife/wildlife_jeep_safari.jpg" alt="Nameri river and forest wildlife">
+      <div class="destination-text">
+        <span class="label">Nameri & Pakke landscape</span>
+        <h3>River forests, elephants and quieter wilderness</h3>
+        <p>
+          Nameri combines semi-evergreen forest, riverine habitats and the Jia Bhoreli landscape.
+          It is a quieter complement to Kaziranga and works beautifully for travellers interested
+          in forest walks, river landscapes, elephants, birds, butterflies and relaxed nature-based travel.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="specialist">
+  <h2 class="section-title">Specialist-led experiences</h2>
+  <p>
+    For travellers with specific interests, we can build tours with local experts and subject specialists.
+    Tell us what you want to see, photograph or learn, and we will shape the route accordingly.
+  </p>
+
+  <div class="specialist-grid">
+    <div class="specialist-item">
+      <h3>Macro Photography</h3>
+      <p>Butterflies, dragonflies, beetles, fungi, frogs, orchids and night-time forest details.</p>
+    </div>
+
+    <div class="specialist-item">
+      <h3>Night Walks</h3>
+      <p>Slow, ethical night walks for frogs, snakes, insects, fireflies and nocturnal forest life.</p>
+    </div>
+
+    <div class="specialist-item">
+      <h3>Mammal Tracking</h3>
+      <p>Routes designed around habitat, signs, camera-trap knowledge and local naturalist expertise.</p>
+    </div>
+
+    <div class="specialist-item">
+      <h3>Family Nature Tours</h3>
+      <p>Gentler wildlife itineraries with safaris, short walks, comfortable stays and flexible pacing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sample">
+  <h2 class="section-title">Sample wildlife itineraries</h2>
+  <p>
+    These are examples only. Every route can be shortened, expanded or redesigned around your interests.
+  </p>
+
+  <div class="timeline">
+    <div class="day-card">
+      <h3>1–2 Days: Kaziranga Safari Extension</h3>
+      <p>
+        A short, high-impact wildlife experience focused on jeep safaris, rhinos, elephants,
+        grassland birds, wetlands and the classic floodplain landscapes of Assam.
+      </p>
+    </div>
+
+    <div class="day-card">
+      <h3>3–5 Days: Kaziranga + Nameri Wildlife Circuit</h3>
+      <p>
+        Combine Kaziranga’s large mammals with Nameri’s river forests, elephants, birdlife,
+        butterflies and a quieter wilderness atmosphere.
+      </p>
+    </div>
+
+    <div class="day-card">
+      <h3>5–7 Days: Eaglenest Cloud Forest Biodiversity Tour</h3>
+      <p>
+        A slower natural-history journey for travellers interested in cloud forests, small mammals,
+        frogs, snakes, insects, fungi, orchids and macro-photography.
+      </p>
+    </div>
+
+    <div class="day-card">
+      <h3>10–15 Days: Complete Northeast India Wildlife Expedition</h3>
+      <p>
+        A deeper journey combining Kaziranga, Nameri, Eaglenest, Dirang and nearby landscapes,
+        designed around mammals, herpetofauna, invertebrates, forest ecology and photography.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <img src="images/wildlife/wildlife_orchid.jpg" alt="Orchid in Northeast India forest">
+
+  <div>
+    <h2 class="section-title">Tell us what you want to see</h2>
+    <p>
+      Wildlife travel is personal. Some travellers come for rhinos and elephants, some for rare
+      mammals, some for frogs and snakes, and some for the glowing, tiny, overlooked life of forests.
+    </p>
+    <p>
+      Share your interests, dates, group size and comfort preferences. We will help design a
+      practical, beautiful and field-rich itinerary around the wildlife you care about most.
+    </p>
+    <a class="button" href="contact.html">Plan a wildlife tour</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <h2>Pushpa Tours & Travels</h2>
+  <p>Birding, wildlife, cultural, family and adventure tours across Northeast India.</p>
+  <p>
+    Email: <a href="mailto:puspalalsharma20@gmail.com">your-puspalalsharma20@gmail.com</a> |
+    Phone/WhatsApp: <a href="tel:+919678039675">+91 96780 39675</a>
+  </p>
+</footer>
+
+<div class="image-popup" id="imagePopup">
+  <button class="close-image-popup" onclick="closeImagePopup()">×</button>
+  <img id="popupImage" src="" alt="">
+</div>
+
+<script>
+  const popup = document.getElementById("imagePopup");
+  const popupImage = document.getElementById("popupImage");
+
+  document.querySelectorAll("img").forEach(function(image) {
+    image.addEventListener("click", function() {
+      popupImage.src = this.src;
+      popupImage.alt = this.alt;
+      popup.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeImagePopup() {
+    popup.classList.remove("active");
+    popupImage.src = "";
+    document.body.style.overflow = "";
+  }
+
+  popup.addEventListener("click", function(event) {
+    if (event.target === popup) {
+      closeImagePopup();
+    }
+  });
+
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+      closeImagePopup();
+    }
+  });
+</script>
+
+</body>
+</html>
