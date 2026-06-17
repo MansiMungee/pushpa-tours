@@ -33,7 +33,7 @@
     }
 
     nav img {
-      width: 250px
+      width: 250px;
     }
 
     nav a {
@@ -125,6 +125,10 @@
       width: 100%;
       border-radius: 30px;
       box-shadow: 0 24px 50px rgba(0,0,0,0.22);
+    }
+
+    img {
+      cursor: zoom-in;
     }
 
     .experiences {
@@ -344,6 +348,54 @@
       text-decoration: none;
     }
 
+    .image-popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(5, 14, 9, 0.88);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    .image-popup.active {
+      display: flex;
+    }
+
+    .image-popup img {
+      max-width: 94vw;
+      max-height: 86vh;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 28px 80px rgba(0,0,0,0.55);
+      cursor: default;
+      background: #f4efe6;
+    }
+
+    .close-image-popup {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      color: #17351f;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10000;
+      transition: all 0.2s ease;
+    }
+
+    .close-image-popup:hover {
+      background: #d6a84f;
+      transform: scale(1.05);
+    }
+
     @media (max-width: 1000px) {
       .experience-grid {
         grid-template-columns: 1fr 1fr;
@@ -386,6 +438,15 @@
 
       .destination-text {
         padding: 28px;
+      }
+
+      .image-popup {
+        padding: 16px;
+      }
+
+      .close-image-popup {
+        top: 16px;
+        right: 16px;
       }
     }
   </style>
@@ -645,6 +706,43 @@
     Phone/WhatsApp: <a href="tel:+919678039675">+91 96780 39675</a>
   </p>
 </footer>
+
+<div class="image-popup" id="imagePopup">
+  <button class="close-image-popup" onclick="closeImagePopup()">×</button>
+  <img id="popupImage" src="" alt="">
+</div>
+
+<script>
+  const popup = document.getElementById("imagePopup");
+  const popupImage = document.getElementById("popupImage");
+
+  document.querySelectorAll("img").forEach(function(image) {
+    image.addEventListener("click", function() {
+      popupImage.src = this.src;
+      popupImage.alt = this.alt;
+      popup.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeImagePopup() {
+    popup.classList.remove("active");
+    popupImage.src = "";
+    document.body.style.overflow = "";
+  }
+
+  popup.addEventListener("click", function(event) {
+    if (event.target === popup) {
+      closeImagePopup();
+    }
+  });
+
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+      closeImagePopup();
+    }
+  });
+</script>
 
 </body>
 </html>
