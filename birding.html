@@ -31,39 +31,57 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 24px;
+      position: relative;
     }
 
     nav img {
       width: 250px;
+      max-width: 58vw;
       height: auto;
     }
 
-    nav a {
+    #menu-toggle {
+      display: none;
+    }
+
+    .menu-button {
+      display: none;
+      color: white;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
       color: white;
       text-decoration: none;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 600;
-      letter-spacing: 0.5px;
-      padding: 10px 18px;
-      border: 1px solid rgba(255,255,255,0.35);
+      letter-spacing: 0.4px;
+      padding: 10px 16px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(6px);
       transition: all 0.25s ease;
-      margin-left: 10px;
     }
 
-    nav a:hover {
-      background: rgba(214,168,79,0.9);
-      color: #17351f;
-      border-color: rgba(214,168,79,1);
-      transform: translateY(-2px);
-    }
-
-    nav a.active {
+    .nav-links a:hover,
+    .nav-links a.active {
       background: #d6a84f;
       color: #17351f;
-      font-weight: 700;
     }
 
     .hero-text {
@@ -178,6 +196,20 @@
 
     .itinerary {
       background: #fffaf0;
+    }
+
+    .flexible-box {
+      background:#f1e2bf;
+      border-left:6px solid #d6a84f;
+      padding:30px;
+      border-radius:20px;
+      margin:40px 0 50px 0;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .flexible-box h3 {
+      margin-bottom:14px;
+      color:#17351f;
     }
 
     .timeline {
@@ -344,64 +376,63 @@
       }
     }
 
-  @media (max-width: 650px) {
-  nav {
-    align-items: center;
-    padding-right: 10px;
-  }
+    @media (max-width: 650px) {
+      nav {
+        align-items: center;
+        padding-right: 10px;
+      }
 
-  .menu-button {
-    display: inline-block;
-    margin-right: 6px;
-  }
+      .menu-button {
+        display: inline-block;
+        margin-right: 6px;
+      }
 
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 74px;
-    right: 10px;
-    width: min(230px, calc(100vw - 48px));
-    background: rgba(16, 32, 23, 0.97);
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-    z-index: 1000;
-  }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 74px;
+        right: 10px;
+        width: min(230px, calc(100vw - 48px));
+        background: rgba(16, 32, 23, 0.97);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+        z-index: 1000;
+      }
 
-  .nav-links a {
-    display: block;
-    padding: 14px 18px;
-    border-radius: 0;
-  }
+      .nav-links a {
+        display: block;
+        padding: 14px 18px;
+        border-radius: 0;
+      }
 
-  #menu-toggle:checked ~ .nav-links {
-    display: block;
-  }
+      #menu-toggle:checked ~ .nav-links {
+        display: block;
+      }
 
-  .stats,
-  .family-cards,
-  .service-grid,
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
+      .stats,
+      .tour-cards,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
 
-  .destination-feature img {
-    height: 300px;
-  }
+      .species {
+        padding: 30px;
+      }
 
-  .destination-text {
-    padding: 28px;
-  }
+      .species-list {
+        columns: 1;
+      }
 
-  .image-popup {
-    padding: 16px;
-  }
+      .image-popup {
+        padding: 16px;
+      }
 
-  .close-image-popup {
-    top: 16px;
-    right: 16px;
-  }
-}
+      .close-image-popup {
+        top: 16px;
+        right: 16px;
+      }
+    }
   </style>
 </head>
 
@@ -409,21 +440,22 @@
 
 <header>
   <nav>
-  <img src="images/logo_AIGen.png" alt="Pushpa Tours & Travels logo">
+    <img src="images/logo_AIGen.png" alt="Pushpa Tours & Travels logo">
 
-  <input type="checkbox" id="menu-toggle">
-  <label for="menu-toggle" class="menu-button">☰ Menu</label>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-button">☰ Menu</label>
 
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="birding.html" class="active">Birding</a>
-    <a href="wildlife.html">Wildlife</a>
-    <a href="cultural.html">Cultural</a>
-    <a href="family.html">Family</a>
-    <a href="adventure.html">Adventure</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="birding.html" class="active">Birding</a>
+      <a href="wildlife.html">Wildlife</a>
+      <a href="cultural.html">Cultural</a>
+      <a href="family.html">Family</a>
+      <a href="adventure.html">Adventure</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
   <div class="hero-text">
     <div class="eyebrow">Northeast India Birding Expeditions</div>
     <h1>Birding through cloud forests, grasslands & Himalayan passes.</h1>
@@ -447,11 +479,10 @@
       Eaglenest is widely known among birders as one of Asia’s most exciting birding landscapes,
       and the wider Northeast India circuit offers a remarkable mix of lowland forest birds,
       grassland specialists, high-altitude Himalayan species and Eastern Himalayan endemics.
-   <p>
-      All our tours are complelety customizable: Budget (basic → premium), Group size (2–20+), 
-      Comfort level (camping → hotels), Activity type (relaxed vs intensive).
-<p>
-      
+    </p>
+    <p>
+      All our tours are completely customisable: budget from basic to premium, group size from
+      2–20+, comfort level from camping to hotels, and activity type from relaxed to intensive.
     </p>
 
     <div class="stats">
@@ -482,38 +513,31 @@
 </section>
 
 <section class="itinerary" id="itinerary">
-  <h2 class="section-title">Full 21-day birding itinerary: Fully customizable </h2>
-  <div style="
-  background:#f1e2bf;
-  border-left:6px solid #d6a84f;
-  padding:30px;
-  border-radius:20px;
-  margin:40px 0 50px 0;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-">
-  <h3 style="margin-bottom:14px; color:#17351f;">
-    Flexible itineraries designed around your interests and schedule
-  </h3>
+  <h2 class="section-title">Full 21-day birding itinerary: fully customisable</h2>
 
-  <p>
-    Every traveller is different, and so is every birding journey. While the itinerary below
-    showcases our flagship 21-day Northeast India birding circuit, most visitors choose a
-    customised version tailored to their available time, target species and travel style.
-  </p>
+  <div class="flexible-box">
+    <h3>Flexible itineraries designed around your interests and schedule</h3>
 
-  <p>
-    We can help design anything from a focused 2–3 day visit to Eaglenest Wildlife Sanctuary
-    in search of the legendary <em>Bugun Liocichla</em>, to week-long explorations of Eaglenest
-    and Dirang, or extended expeditions covering Kaziranga, Nameri, Arunachal Pradesh and
-    Meghalaya.
-  </p>
+    <p>
+      Every traveller is different, and so is every birding journey. While the itinerary below
+      showcases our flagship 21-day Northeast India birding circuit, most visitors choose a
+      customised version tailored to their available time, target species and travel style.
+    </p>
 
-  <p>
-    Whether your goal is seeing a handful of iconic Eastern Himalayan specialities or
-    photographing more than 300 bird species across multiple habitats, we can create a
-    personalised itinerary that balances birding, comfort, photography opportunities and
-    local experiences.
-  </p>
+    <p>
+      We can help design anything from a focused 2–3 day visit to Eaglenest Wildlife Sanctuary
+      in search of the legendary <em>Bugun Liocichla</em>, to week-long explorations of Eaglenest
+      and Dirang, or extended expeditions covering Kaziranga, Nameri, Arunachal Pradesh and
+      Meghalaya.
+    </p>
+
+    <p>
+      Whether your goal is seeing a handful of iconic Eastern Himalayan specialities or
+      photographing more than 300 bird species across multiple habitats, we can create a
+      personalised itinerary that balances birding, comfort, photography opportunities and
+      local experiences.
+    </p>
+  </div>
 
   <div class="timeline">
     <div class="day-card">
