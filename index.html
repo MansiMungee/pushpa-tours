@@ -433,8 +433,8 @@
       }
     }
 
-    @media (max-width: 650px) {
-       nav {
+ @media (max-width: 650px) {
+  nav {
     align-items: center;
     padding-right: 10px;
   }
@@ -467,29 +467,30 @@
     display: block;
   }
 
-     
+  .stats,
+  .family-cards,
+  .service-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
 
-      .experience-grid {
-        grid-template-columns: 1fr;
-      }
+  .destination-feature img {
+    height: 300px;
+  }
 
-      .destination-feature img {
-        height: 300px;
-      }
+  .destination-text {
+    padding: 28px;
+  }
 
-      .destination-text {
-        padding: 28px;
-      }
+  .image-popup {
+    padding: 16px;
+  }
 
-      .image-popup {
-        padding: 16px;
-      }
-
-      .close-image-popup {
-        top: 16px;
-        right: 16px;
-      }
-    }
+  .close-image-popup {
+    top: 16px;
+    right: 16px;
+  }
+}
   </style>
 </head>
 
